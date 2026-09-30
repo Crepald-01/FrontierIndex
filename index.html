@@ -180,27 +180,79 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 @media(max-width:520px){.row{grid-template-columns:110px 1fr 52px;gap:10px;font-size:13px}}
 
 /* duel */
-.duel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
-.duel label{display:block;margin-bottom:8px}
+.dpre{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px;align-items:center}
+.dpre button,.dcats button,.dact button{background:none;border:1px solid var(--line2);color:var(--mute);padding:7px 14px;border-radius:99px;cursor:pointer;font-size:13.5px;transition:color .25s,background .25s,border-color .25s,transform .25s var(--ease)}
+.dpre button:hover,.dcats button:hover,.dact button:hover{color:var(--fg);border-color:var(--mute);transform:translateY(-1px)}
+.dpre button[aria-pressed=true],.dcats button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.face{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch;margin-bottom:22px}
+.side{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:22px 22px 20px;transition:border-color .5s,box-shadow .6s var(--ease),background .4s}
+.side.lead{border-color:color-mix(in srgb,var(--ok) 60%,var(--line));box-shadow:0 0 0 1px color-mix(in srgb,var(--ok) 30%,transparent),0 20px 60px -30px color-mix(in srgb,var(--ok) 60%,transparent)}
+.side label{display:block;margin-bottom:8px}
+.side .crown{position:absolute;top:18px;right:20px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ok);opacity:0;transform:translateY(6px);transition:.5s var(--ease)}
+.side.lead .crown{opacity:1;transform:none}
 .sel{position:relative}
-.sel::after{content:"↓";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--mute);pointer-events:none}
-.duel select{width:100%;appearance:none;font:400 32px var(--serif);background:var(--bg2);border:1px solid var(--line2);border-radius:16px;padding:16px 46px 16px 20px;cursor:pointer;transition:border-color .3s}
-.duel select:hover{border-color:var(--mute)}
-.duel option{font:16px var(--sans);background:var(--bg2)}
-.dtab{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg2)}
-.dr{display:grid;grid-template-columns:1fr minmax(120px,210px) 1fr;align-items:center;border-bottom:1px solid var(--line);animation:rowin .6s var(--ease) both;animation-delay:calc(var(--i)*40ms)}
-@keyframes rowin{from{opacity:0;transform:translateY(8px)}}
+.sel::after{content:"↓";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--mute);pointer-events:none}
+.side select{width:100%;appearance:none;font:400 clamp(26px,3vw,36px) var(--serif);background:var(--bg);border:1px solid var(--line2);border-radius:14px;padding:12px 44px 12px 16px;cursor:pointer;transition:border-color .3s}
+.side select:hover{border-color:var(--mute)}
+.side option{font:16px var(--sans);background:var(--bg2)}
+.prof{margin-top:16px;transition:opacity .3s,transform .4s var(--ease)}
+.prof.out{opacity:0;transform:translateY(6px)}
+.prof .pt{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mute)}
+.prof .pt i{width:7px;height:7px;border-radius:50%}
+.prof .tg{display:inline-block;margin:10px 0 12px;font:11px var(--mono);letter-spacing:.04em;padding:3px 9px;border-radius:99px;background:var(--bg3);color:var(--fg)}
+.prof .st{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.prof .st div{padding:10px 0}.prof .st div+div{padding-left:12px;border-left:1px solid var(--line)}
+.prof small{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.prof b{font-weight:500;font-size:14.5px;font-variant-numeric:tabular-nums}
+.midc{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-width:120px}
+#dswap{width:46px;height:46px;border-radius:50%;border:1px solid var(--line2);background:var(--bg2);cursor:pointer;font-size:18px;transition:transform .6s var(--ease),background .3s,color .3s}
+#dswap:hover{background:var(--fg);color:var(--bg)}
+#dswap.spin{transform:rotate(180deg)}
+.sc3{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);line-height:1;font-variant-numeric:tabular-nums}
+.sc3 b{font-weight:400;font-size:clamp(52px,6vw,84px);transition:color .4s}
+.sc3 b.win{color:var(--ok)}
+.sc3 span{font-size:32px;color:var(--dim)}
+.midc small{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:center}
+.dcats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;min-height:38px}
+.dcats b{font-weight:400;color:var(--dim);margin-left:4px;font-size:12px}
+.dcats button[aria-pressed=true] b{color:inherit;opacity:.6}
+.dtab{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg2)}
+.dr{display:grid;grid-template-columns:1fr minmax(150px,230px) 1fr;align-items:center;border-bottom:1px solid var(--line);animation:rowin .6s var(--ease) both;animation-delay:calc(var(--i)*45ms);transition:background .25s}
+.dr:hover{background:var(--bg3)}
+@keyframes rowin{from{opacity:0;transform:translateY(10px)}}
 .dr:last-child{border:0}
-.dr div{padding:15px 22px;font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums;color:var(--mute);position:relative;isolation:isolate}
-.dr .k{text-align:center;font:500 13px var(--sans);color:var(--mute)}
-.dr .l{text-align:right}
-.dr .w2{color:var(--ok);font-weight:500}
-.dr .w2::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--ok) 12%,transparent));z-index:-1;animation:sweep .8s var(--ease) both}
-.dr .l.w2::before{background:linear-gradient(270deg,transparent,color-mix(in srgb,var(--ok) 12%,transparent));animation-name:sweepl}
-@keyframes sweep{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
-@keyframes sweepl{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
+.dr .c{padding:16px 22px;display:flex;flex-direction:column;gap:9px}
+.dr .c.l{align-items:flex-end}
+.dr .vv{font:500 20px var(--mono);font-variant-numeric:tabular-nums;color:var(--mute);transition:color .3s}
+.dr .bb{display:block;width:100%;height:5px;border-radius:99px;background:var(--line);overflow:hidden}
+.dr .bb i{display:block;height:100%;width:100%;border-radius:99px;background:var(--dim);transform:scaleX(var(--s));animation:barin 1s var(--ease) both;animation-delay:calc(var(--i)*45ms + .1s)}
+.dr .l .bb i{transform-origin:100% 50%}.dr .r .bb i{transform-origin:0 50%}
+@keyframes barin{from{transform:scaleX(0)}}
+.dr.a .l .vv,.dr.b .r .vv{color:var(--ok)}
+.dr.a .l .bb i,.dr.b .r .bb i{background:var(--ok)}
+.dr .k{text-align:center;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:3px}
+.dr .k b{font:500 13.5px var(--sans);color:var(--fg)}
+.dr .k small{font:10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.dr .k u{text-decoration:none;cursor:help;padding:1px 6px;border-radius:99px;background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.dr .k u.V{background:color-mix(in srgb,var(--a) 14%,transparent);color:var(--a)}
+.dr .k u.M{background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
+.dr .df{font:500 11.5px var(--mono);font-style:normal;color:var(--mute);margin-top:2px}
+.dr.a .df,.dr.b .df{color:var(--ok)}
+.dr.a .df::before{content:"◀ "}.dr.b .df::after{content:" ▶"}
+.verdict{margin-top:22px;border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3.5vw,36px);background:var(--bg2)}
+.verdict h3{font-size:clamp(34px,4vw,52px);margin-bottom:14px}
+.verdict p{color:color-mix(in srgb,var(--fg) 78%,var(--mute));max-width:760px;margin-bottom:12px}
+.verdict .cps{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.verdict .cp{font:12px var(--mono);border:1px solid var(--line2);border-radius:99px;padding:5px 12px;color:var(--mute)}
+.verdict .cp b{color:var(--fg);font-weight:500}
+.verdict .warn{font-size:14px;border-left:2px solid var(--a);padding-left:14px;color:var(--mute)}
+.verdict .try{margin-top:8px}
+.verdict .try button{background:none;border:1px solid var(--line2);color:var(--fg);padding:8px 16px;border-radius:99px;cursor:pointer;margin:4px 6px 0 0;transition:.25s}
+.verdict .try button:hover{background:var(--fg);color:var(--bg)}
+.dact{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
 .note2{color:var(--mute);font-size:14px;margin-top:14px;max-width:760px}
-@media(max-width:720px){.duel{grid-template-columns:1fr}.dr div{padding:12px 10px;font-size:14px}}
+@media(max-width:860px){.face{grid-template-columns:1fr}.midc{flex-direction:row;justify-content:center}#dswap{transform:rotate(90deg)}#dswap.spin{transform:rotate(270deg)}}
+@media(max-width:640px){.dr{grid-template-columns:1fr 1fr}.dr .k{grid-column:1/-1;order:-1;background:var(--bg3);padding:10px}.dr .c{padding:14px 16px}.dr .vv{font-size:17px}}
 
 /* scatter */
 .sc{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:22px 14px 14px}
@@ -395,10 +447,18 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
 </div></section>
 
 <section id="duel"><div class="wrap">
-  <div class="sh"><div class="idx mono">04 — Head to head</div><h2>Pick <em>two</em></h2><p>Only benchmarks where both models have a published score are shown. The winner of each row is highlighted.</p></div>
-  <div class="duel rv"><div><label class="mono" for="da">Model A</label><div class="sel"><select id="da"></select></div></div><div><label class="mono" for="db">Model B</label><div class="sel"><select id="db"></select></div></div></div>
+  <div class="sh"><div class="idx mono">04 — Head to head</div><h2>Pick <em>two</em></h2><p>Choose two models. Only benchmarks where both have a published score are compared, and gaps smaller than measurement noise count as ties.</p></div>
+  <div class="dpre rv" id="dpre" role="group" aria-label="Preset matchups"></div>
+  <div class="face rv">
+    <div class="side" id="sa"><span class="crown">Leads</span><label class="mono" for="da">Model A</label><div class="sel"><select id="da"></select></div><div class="prof" id="pa"></div></div>
+    <div class="midc"><div class="sc3" id="dscore" aria-live="polite"></div><button id="dswap" aria-label="Swap models">⇄</button><small id="dsub"></small></div>
+    <div class="side" id="sb"><span class="crown">Leads</span><label class="mono" for="db">Model B</label><div class="sel"><select id="db"></select></div><div class="prof" id="pb"></div></div>
+  </div>
+  <div class="dcats rv" id="dcats" role="group" aria-label="Filter by category"></div>
   <div class="dtab rv" id="dt"></div>
-  <p class="note2" id="dn"></p>
+  <div class="verdict rv" id="dv"></div>
+  <div class="dact rv"><button id="dcopy">Copy link to this matchup</button><button id="drand">Random matchup</button></div>
+  <p class="note2">Scores mix vendor and tracker sources; the coloured tag on each row says which. Ties: within 1 point, or 15 Elo on GDPval. A model with no published score on a benchmark is left out of that row, not counted as a loss.</p>
 </div></section>
 
 <section id="arena"><div class="wrap">
@@ -600,17 +660,25 @@ const AR={
 };
 
 const DL={tb:"Terminal-Bench 4.0",swep:"SWE-bench Pro",dswe:"DeepSWE v1.1",os:"OSWorld 2.0",auto:"AutomationBench",bc:"BrowseComp",gdp:"GDPval-AA v2 (Elo)",gpqa:"GPQA Diamond",hle:"HLE (tools)",fm:"FrontierMath T4",arc:"ARC-AGI-3",aa:"AA Intelligence Index"};
+const DC={tb:"Coding",swep:"Coding",dswe:"Coding",os:"Agents",auto:"Agents",bc:"Agents",gdp:"Agents",gpqa:"Reasoning",hle:"Reasoning",fm:"Reasoning",arc:"Reasoning",aa:"Overall"};
+const DK={tb:"M",swep:"V",dswe:"M",os:"M",auto:"M",bc:"M",gdp:"V",gpqa:"I",hle:"M",fm:"V",arc:"I",aa:"I"};
+const DDOM={gdp:[1600,1900],aa:[0,65]},DTIE={gdp:15,aa:1};
 const D={
  "GPT-6 Astra":{tb:57.7,dswe:74.1,os:72.6,auto:41.4,bc:91.5,gpqa:96.0,hle:57.2,fm:97.6,arc:62.7,aa:53},
  "GPT-6.1 Sol":{dswe:75.2,os:71.4,auto:36.1,aa:52},
+ "GPT-6 Sol":{dswe:68.8,os:64.4},
  "Claude Fable 5.1":{tb:55.8,dswe:67.4,os:77.9,auto:31.4,gdp:1853,hle:65.0,fm:87.8,aa:53},
  "Claude Opus 5.5":{tb:66.4,swep:89.9,auto:42.5,hle:67.7,aa:58},
  "Claude Sonnet 5.5":{tb:70.6,swep:81.3,dswe:71.0,auto:44.7,aa:56},
  "Claude Opus 5":{tb:52.3,dswe:74.0,os:75.4,auto:26.9,gdp:1824,hle:63.6,fm:73.2,arc:30.2},
+ "Claude Mythos 5.1":{tb:60.9,hle:65.0},
  "Gemini 3.8 Flash":{dswe:71.0,gpqa:95.3,hle:54.9,arc:10.4},
+ "Gemini 3.1 Pro":{gpqa:94.3},
  "Grok 4.7":{tb:26,dswe:71.0,aa:46},
  "Muse Spark 1.3":{dswe:75.4,os:57.2,gdp:1709},
- "Qwen3.8 Max":{dswe:56.6,gpqa:92.6,aa:45}
+ "Qwen3.8 Max":{dswe:56.6,gpqa:92.6,aa:45},
+ "DeepSeek V4.1 Flash":{tb:27},
+ "Kimi K3":{gpqa:93.5,bc:91.2}
 };
 
 const SC=[["Opus 5.5 max",58,5.98,"Anthropic"],["Opus 5.5 xhigh",56,3.46,"Anthropic"],["Opus 5.5 high",54,1.82,"Anthropic"],["Opus 5.5 medium",51,1.34,"Anthropic",-12,4,"end"],["Sonnet 5.5 max",56,7.60,"Anthropic"],["Sonnet 5.5 xhigh",52,2.74,"Anthropic",12,-10],["Fable 5.1 max",53,7.63,"Anthropic"],["Fable 5.1 high",51,3.91,"Anthropic"],["Astra max",53,3.26,"OpenAI"],["Astra xhigh",52,2.31,"OpenAI",-12,4,"end"],["Astra high",51,1.73,"OpenAI",0,22,"middle"],["6.1 Sol max",52,.72,"OpenAI"],["6.1 Sol xhigh",51,.39,"OpenAI"],["6.1 Sol high",50,.32,"OpenAI"]];
@@ -765,19 +833,71 @@ function fillArena(){const b=AR[acur],kd=KIND[b.k];
 $("#atabs").addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;acur=t.textContent;$$("#atabs button").forEach(x=>x.setAttribute("aria-selected",x===t));swapText(["#at","#as","#ad","#an"],fillArena)});
 onView($("#arows"),fillArena);
 
-const names=Object.keys(D);
+const names=Object.keys(D),MB=Object.fromEntries(M.map(m=>[m.n,m]));
+const sn=n=>n.replace("Claude ","");
+const shared=(a,b)=>Object.keys(DL).filter(k=>D[a][k]!=null&&D[b][k]!=null);
 const opt=n=>names.map(x=>`<option${x==n?" selected":""}>${x}</option>`).join("");
-$("#da").innerHTML=opt("GPT-6 Astra");$("#db").innerHTML=opt("Claude Fable 5.1");
-function duel(){
-  const a=$("#da").value,b=$("#db").value,A=D[a],Bb=D[b];
-  const rows=Object.keys(DL).filter(k=>A[k]!=null&&Bb[k]!=null);let wa=0,wb=0;
-  $("#dt").innerHTML=rows.length?rows.map((k,i)=>{
-    const x=A[k],y=Bb[k],w=x>y?"a":x<y?"b":"";if(w=="a")wa++;if(w=="b")wb++;
-    const f=v=>k=="gdp"||k=="aa"?v.toFixed(0):v.toFixed(1);
-    return `<div class="dr" style="--i:${i}"><div class="l ${w=="a"?"w2":""}">${f(x)}</div><div class="k">${DL[k]}</div><div class="${w=="b"?"w2":""}">${f(y)}</div></div>`}).join(""):`<div class="dr"><div class="k" style="grid-column:1/4;padding:30px">No shared benchmarks for this pair. That is common: labs publish different suites.</div></div>`;
-  $("#dn").textContent=a==b?"Pick two different models.":rows.length?`${rows.length} shared benchmark${rows.length>1?"s":""}: ${a} wins ${wa}, ${b} wins ${wb}. Scores mix vendor and tracker sources, so read close margins as ties.`:"";
+const DPRE=[["Flagship showdown","GPT-6 Astra","Claude Fable 5.1"],["Budget battle","GPT-6.1 Sol","Claude Sonnet 5.5"],["Old vs new","Claude Opus 5","Claude Opus 5.5"],["Flash vs flagship","Gemini 3.8 Flash","GPT-6 Astra"],["Open vs closed","Qwen3.8 Max","GPT-6.1 Sol"]];
+let dcat="All",lastPair="";
+const qs=new URLSearchParams(location.search),qa=qs.get("a"),qb=qs.get("b");
+$("#da").innerHTML=opt(D[qa]?qa:"GPT-6 Astra");$("#db").innerHTML=opt(D[qb]?qb:"Claude Fable 5.1");
+$("#dpre").innerHTML=DPRE.map((p,i)=>`<button data-i="${i}" aria-pressed="false">${p[0]}</button>`).join("");
+const fv=(k,v)=>k=="gdp"||k=="aa"?v.toFixed(0):v.toFixed(1);
+function profile(id,name){
+  const el=$(id),m=MB[name],n=Object.keys(D[name]).length;
+  el.innerHTML=`<div class="pt"><i style="background:${LABC[m.co]||"var(--a)"}"></i>${m.co} · ${dlabel(m.d)}${m.lab=="Open weights"?" · open weights":""}</div><span class="tg">${m.tag}</span><div class="st"><div><small>Context</small><b>${m.ctx}</b></div><div><small>In / out $</small><b>${money(m.pin)} / ${money(m.pout)}</b></div><div><small>Scores</small><b>${n} of 12</b></div></div>`;
 }
-$("#da").addEventListener("change",duel);$("#db").addEventListener("change",duel);duel();
+function duel(force){
+  const a=$("#da").value,b=$("#db").value,pair=a+"|"+b,A=D[a],Bk=D[b];
+  if(pair!=lastPair||force){
+    ["#pa","#pb"].forEach(i=>$(i).classList.add("out"));
+    setTimeout(()=>{profile("#pa",a);profile("#pb",b);["#pa","#pb"].forEach(i=>$(i).classList.remove("out"))},lastPair&&!RM?200:0);
+  }
+  const all=shared(a,b),cats=["Coding","Agents","Reasoning","Overall"].filter(c=>all.some(k=>DC[k]==c));
+  if(dcat!="All"&&!cats.includes(dcat))dcat="All";
+  $("#dcats").innerHTML=all.length?["All",...cats].map(c=>`<button aria-pressed="${c==dcat}" data-c="${c}">${c}<b>${c=="All"?all.length:all.filter(k=>DC[k]==c).length}</b></button>`).join(""):"";
+  const res=all.map(k=>{const x=A[k],y=Bk[k],d=Math.abs(x-y),w=d<(DTIE[k]??1)?"t":x>y?"a":"b";return{k,x,y,d,w}});
+  let wa=0,wb=0,wt=0;res.forEach(r=>r.w=="a"?wa++:r.w=="b"?wb++:wt++);
+  const rows=res.filter(r=>dcat=="All"||DC[r.k]==dcat);
+  const sc=(k,v)=>{const [lo,hi]=DDOM[k]||[0,100];return Math.max(.02,Math.min(1,(v-lo)/(hi-lo)))};
+  const kn={I:"Independent",V:"Vendor-reported",M:"Mixed sources"};
+  $("#dt").innerHTML=rows.length?rows.map((r,i)=>`<div class="dr ${r.w}" style="--i:${i}"><div class="c l"><span class="vv">${fv(r.k,r.x)}</span><span class="bb"><i style="--s:${sc(r.k,r.x)}"></i></span></div><div class="k"><b>${DL[r.k]}</b><small>${DC[r.k]} · <u class="${DK[r.k]}" title="${kn[DK[r.k]]}">${kn[DK[r.k]]}</u></small><em class="df">${r.w=="t"?"≈ tie":"+"+fv(r.k,r.d)}</em></div><div class="c r"><span class="vv">${fv(r.k,r.y)}</span><span class="bb"><i style="--s:${sc(r.k,r.y)}"></i></span></div></div>`).join(""):`<div class="dr" style="grid-template-columns:1fr"><div class="k" style="padding:36px 20px"><b>No shared benchmarks</b><small>Labs publish different suites</small></div></div>`;
+  const same=a==b;
+  $("#dscore").innerHTML=all.length&&!same?`<b id="na">0</b><span>:</span><b id="nb">0</b>`:`<b style="color:var(--dim)">–</b>`;
+  if(all.length&&!same){tween(0,wa,700,v=>{const e=$("#na");if(e)e.textContent=Math.round(v)});tween(0,wb,700,v=>{const e=$("#nb");if(e)e.textContent=Math.round(v)});
+    $("#na").classList.toggle("win",wa>wb);$("#nb").classList.toggle("win",wb>wa)}
+  $("#dsub").textContent=same?"pick two":all.length?`${wt} tie${wt==1?"":"s"} · ${all.length} shared`:"no overlap";
+  $("#sa").classList.toggle("lead",!same&&wa>wb);$("#sb").classList.toggle("lead",!same&&wb>wa);
+  let h="",body="";
+  if(same){h="Pick two different models";body="<p>Choose a different model on one side to compare.</p>"}
+  else if(!all.length){
+    const alts=names.filter(n=>n!=a&&shared(a,n).length>=2).slice(0,3);
+    h="No head-to-head data";body=`<p>${a} and ${b} have no benchmark in common, so any comparison would be a guess. Labs choose which suites to publish.</p>${alts.length?`<div class="try">Try ${sn(a)} against: ${alts.map(n=>`<button data-b="${n}">${n}</button>`).join("")}</div>`:""}`;
+  }else{
+    const lead=wa>wb?a:wb>wa?b:null;
+    h=lead?`${lead} takes it, ${Math.max(wa,wb)}–${Math.min(wa,wb)}`:`Dead heat, ${wa}–${wb}`;
+    const cp=cats.map(c=>{const r=res.filter(x=>DC[x.k]==c);const ca=r.filter(x=>x.w=="a").length,cb=r.filter(x=>x.w=="b").length;
+      const t=ca>cb?`<b>${sn(a)}</b> ${ca}–${cb}`:cb>ca?`<b>${sn(b)}</b> ${cb}–${ca}`:`level ${ca}–${cb}`;return `<span class="cp">${c} · ${t}</span>`}).join("");
+    let price="";const pa=MB[a].pout,pb=MB[b].pout;
+    if(pa!=null&&pb!=null){price=pa==pb?`Same output price ($${pa} per million tokens).`:`${pa>pb?sn(a):sn(b)} costs <b style="color:var(--fg)">${(Math.max(pa,pb)/Math.min(pa,pb)).toFixed(1)}x</b> more per output token ($${Math.max(pa,pb)} vs $${Math.min(pa,pb)} per million).`}
+    else price="Output pricing is unavailable for one of these models.";
+    body=`<div class="cps">${cp}</div><p>${price}</p>${all.length<3?`<p class="warn">Only ${all.length} shared benchmark${all.length==1?"":"s"}. Treat this as a hint, not a verdict.</p>`:wt>=all.length/2?`<p class="warn">Most gaps here are inside measurement noise, so the models are effectively level on the evidence available.</p>`:""}`;
+  }
+  $("#dv").innerHTML=`<h3>${h}</h3>${body}`;
+  $$("#dpre button").forEach(x=>{const p=DPRE[x.dataset.i];x.setAttribute("aria-pressed",(p[1]==a&&p[2]==b)||(p[1]==b&&p[2]==a))});
+  if(pair!=lastPair&&lastPair){history.replaceState(null,"",`?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}#duel`)}
+  lastPair=pair;
+}
+function setPair(a,b){$("#da").value=a;$("#db").value=b;dcat="All";duel()}
+$("#da").addEventListener("change",()=>duel());$("#db").addEventListener("change",()=>duel());
+$("#dpre").addEventListener("click",e=>{const t=e.target.closest("button");if(t){const p=DPRE[t.dataset.i];setPair(p[1],p[2])}});
+$("#dcats").addEventListener("click",e=>{const t=e.target.closest("button");if(t){dcat=t.dataset.c;duel()}});
+$("#dswap").addEventListener("click",()=>{const a=$("#da").value,b=$("#db").value;$("#dswap").classList.toggle("spin");setPair(b,a)});
+$("#dv").addEventListener("click",e=>{const t=e.target.closest("[data-b]");if(t)setPair($("#da").value,t.dataset.b)});
+$("#drand").addEventListener("click",()=>{let a,b,t=0;do{a=names[Math.random()*names.length|0];b=names[Math.random()*names.length|0]}while((a==b||shared(a,b).length<3)&&++t<200);setPair(a,b)});
+$("#dcopy").addEventListener("click",async e=>{const u=`${location.origin}${location.pathname}?a=${encodeURIComponent($("#da").value)}&b=${encodeURIComponent($("#db").value)}#duel`,b=e.currentTarget;
+  try{await navigator.clipboard.writeText(u);b.textContent="Copied ✓"}catch{b.textContent="Copy failed — use the address bar"}setTimeout(()=>b.textContent="Copy link to this matchup",2000)});
+duel();
 
 (function(){
   const W=900,H=460,L=64,R=34,T=24,Bm=58,xl=Math.log10(.25),xh=Math.log10(10);
