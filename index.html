@@ -67,7 +67,7 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 .sh .idx{grid-column:1/-1;display:flex;align-items:center;gap:14px}
 .sh .idx::after{content:"";flex:1;height:1px;background:var(--line);transform-origin:0 50%;transform:scaleX(0);transition:transform 1.4s var(--ease) .1s}
 .sh.in .idx::after{transform:none}
-.sh h2{font-size:clamp(42px,6.4vw,92px);max-width:900px}
+.sh h2{font-size:clamp(40px,5.8vw,80px);max-width:900px}
 .sh p{max-width:380px;color:var(--mute);font-size:16px}
 @media(max-width:820px){.sh{grid-template-columns:1fr}.sh p{max-width:560px}}
 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .06em .12em 0;margin-bottom:-.12em}
@@ -75,8 +75,8 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 .w.em{color:var(--a);font-style:italic}
 .sh.in .w>span{transform:none}
 
-.rv{opacity:0;transform:translateY(32px);filter:blur(6px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none;filter:none}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
 
 /* hero */
 .hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;position:relative;overflow:hidden}
@@ -92,6 +92,10 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 @keyframes up{to{transform:none}}
 @keyframes fade{to{opacity:1}}
 .hero .lede{max-width:600px;font-size:clamp(17px,1.6vw,21px);color:var(--mute);opacity:0;animation:fade 1s ease 1.8s forwards}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;opacity:0;animation:fade 1s ease 1.9s forwards}
+.cta{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:99px;background:var(--fg);color:var(--bg);text-decoration:none;font-weight:500;font-size:15px;transition:transform .35s var(--ease),border-color .3s}
+.cta i{font-style:normal;transition:transform .4s var(--ease)}.cta:hover i{transform:translateX(4px)}
+.cta.ghost{background:none;color:var(--fg);border:1px solid var(--line2)}.cta.ghost:hover{border-color:var(--fg)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(40px,7vw,80px);border-top:1px solid var(--line2);opacity:0;animation:fade 1s ease 2s forwards}
 .stats div{padding:22px 22px 0 0}
 .stats div+div{padding-left:22px;border-left:1px solid var(--line)}
@@ -151,6 +155,8 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 .bm{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
 .bm span{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--mute)}
 .bm b{color:var(--fg);font-weight:500}
+.cmp{margin-top:16px;background:none;border:0;color:var(--mute);font-size:13.5px;cursor:pointer;padding:0;display:inline-flex;gap:6px;transition:color .3s,gap .4s var(--ease)}
+.cmp i{font-style:normal}.cmp:hover{color:var(--fg);gap:12px}
 
 /* benchmarks */
 .cats{display:flex;gap:30px;margin-bottom:22px;border-bottom:1px solid var(--line);flex-wrap:wrap;position:relative}
@@ -167,6 +173,7 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 .src i{font-style:normal;padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
 .src i.v{background:color-mix(in srgb,var(--a) 14%,transparent);color:var(--a)}
 .src i.m{background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
+.hint{font-size:13.5px;color:var(--dim);margin:-18px 0 32px;max-width:640px}
 .swap{transition:opacity .3s,transform .4s var(--ease)}.swap.out{opacity:0;transform:translateY(8px)}
 .rows{min-height:60px}
 .row{display:grid;grid-template-columns:minmax(120px,190px) 1fr 64px;gap:16px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
@@ -253,6 +260,15 @@ section{position:relative;z-index:1;padding:clamp(90px,12vw,160px) 0 0}
 .note2{color:var(--mute);font-size:14px;margin-top:14px;max-width:760px}
 @media(max-width:860px){.face{grid-template-columns:1fr}.midc{flex-direction:row;justify-content:center}#dswap{transform:rotate(90deg)}#dswap.spin{transform:rotate(270deg)}}
 @media(max-width:640px){.dr{grid-template-columns:1fr 1fr}.dr .k{grid-column:1/-1;order:-1;background:var(--bg3);padding:10px}.dr .c{padding:14px 16px}.dr .vv{font-size:17px}}
+
+
+/* sliding selection pill */
+.pl{position:relative}
+.pl .tp{position:absolute;left:0;top:0;border-radius:99px;background:var(--fg);pointer-events:none;z-index:0;transition:transform .55s var(--ease),width .55s var(--ease),height .55s var(--ease),opacity .3s}
+.pl button{position:relative;z-index:1}
+.pl button[aria-pressed=true],.pl button[aria-selected=true]{background:none!important;border-color:transparent!important;color:var(--bg)!important}
+.pl button:hover{transform:none!important}
+.chips button:active,.tabs button:active,.dact button:active,.pre button:active,.cta:active,.dpre button:active,.dcats button:active{transform:scale(.96)}
 
 /* scatter */
 .sc{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:22px 14px 14px}
@@ -385,12 +401,106 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
 #top2.on{opacity:1;transform:none;pointer-events:auto}
 #top2:hover{background:var(--fg);color:var(--bg)}
 
+
+/* kicker link */
+.kicker a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line2);transition:border-color .3s}
+.kicker a:hover{border-color:var(--fg)}
+/* card actions */
+.acts{display:flex;gap:20px;margin-top:16px}
+.acts .cmp{margin-top:0}
+.dtl{background:none;border:0;color:var(--mute);font-size:13.5px;cursor:pointer;padding:0;display:inline-flex;gap:6px;transition:color .3s,gap .4s var(--ease)}
+.dtl i{font-style:normal}.dtl:hover{color:var(--fg);gap:12px}
+.lk{cursor:pointer}.lk:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ranker */
+.rkg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(28px,6vw,80px);align-items:start}
+@media(max-width:900px){.rkg{grid-template-columns:1fr}}
+.ld{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+.sw{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--mute);cursor:pointer;margin:6px 0 18px;position:relative}
+.sw input{position:absolute;opacity:0}
+.sw span{width:38px;height:22px;border-radius:99px;background:var(--line2);position:relative;transition:background .3s;flex:none}
+.sw span::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--fg);transition:transform .4s var(--ease)}
+.sw input:checked+span{background:var(--ok)}
+.sw input:checked+span::after{transform:translateX(16px)}
+.sw input:focus-visible+span{outline:2px solid var(--violet);outline-offset:3px}
+#rsum{margin-bottom:18px;padding:22px 24px;border:1px solid var(--line);border-radius:20px;background:var(--bg2)}
+#rsum h3{font-size:clamp(38px,4.6vw,60px);margin:8px 0 8px}
+#rsum p{color:var(--mute);font-size:15px}
+#rsum button{background:none;border:0;color:var(--fg);cursor:pointer;font-size:14px;padding:0;margin-top:10px;border-bottom:1px solid var(--line2)}
+.rr{display:grid;grid-template-columns:28px minmax(110px,190px) 1fr 52px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);transition:transform .7s var(--ease),opacity .4s}
+.rr[hidden]{display:none}
+.rr.part{opacity:.7}
+.rr .rn{font:12px var(--mono);color:var(--dim)}
+.rr .nm{background:none;border:0;text-align:left;cursor:pointer;color:var(--fg);font-size:15px;padding:0;display:flex;flex-direction:column;align-items:flex-start}
+.rr .nm:hover span{text-decoration:underline;text-underline-offset:3px}
+.rr .nm small{font-size:11px;color:var(--dim);font-family:var(--mono)}
+.rr .bar{display:flex;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.rr .bar i{display:block;height:100%;width:0;transition:width .8s var(--ease)}
+.rr .v{font:13px var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.excl{font-size:13.5px;color:var(--dim);margin-top:16px}
+
+/* model page */
+html.lock{overflow:hidden}
+.mp{position:fixed;inset:0;z-index:150;visibility:hidden;transition:visibility 0s .7s}
+.mp.open{visibility:visible;transition:none}
+.mp-bg{position:absolute;inset:0;background:color-mix(in srgb,var(--bg) 62%,transparent);backdrop-filter:blur(6px);opacity:0;transition:opacity .5s var(--ease)}
+.mp.open .mp-bg{opacity:1}
+.mp-panel{position:absolute;top:0;right:0;bottom:0;width:min(620px,100%);background:var(--bg2);border-left:1px solid var(--line2);overflow-y:auto;transform:translateX(102%);transition:transform .7s var(--ease);padding:clamp(24px,4vw,44px);overscroll-behavior:contain}
+.mp.open .mp-panel{transform:none}
+.mp-x{position:absolute;top:18px;right:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:none;cursor:pointer;font-size:20px;line-height:1;transition:.4s var(--ease);z-index:2}
+.mp-x:hover{background:var(--fg);color:var(--bg);transform:rotate(90deg)}
+.mpi{opacity:0;transform:translateY(14px)}
+.mp.open .mpi{animation:mpin .7s var(--ease) both;animation-delay:calc(var(--i,0)*55ms + .25s)}
+@keyframes mpin{to{opacity:1;transform:none}}
+.mp h2{font-size:clamp(44px,7vw,72px);margin:14px 0 14px;padding-right:40px}
+.mp .ey{display:flex;align-items:center;gap:8px}
+.mp .ey i{width:7px;height:7px;border-radius:50%}
+.mp .tg2{display:inline-block;font:11px var(--mono);letter-spacing:.04em;padding:4px 10px;border-radius:99px;background:var(--bg3);margin-bottom:14px}
+.mp .desc2{color:color-mix(in srgb,var(--fg) 80%,var(--mute));margin-bottom:22px}
+.msp{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);margin-bottom:28px}
+.msp div{padding:12px 0}.msp div+div{padding-left:12px;border-left:1px solid var(--line)}
+.msp small{display:block;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.msp b{font-weight:500;font-size:15px;font-variant-numeric:tabular-nums}
+@media(max-width:520px){.msp{grid-template-columns:repeat(2,1fr)}.msp div:nth-child(3){border-left:0;padding-left:0}}
+.mp h4{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:24px 0 8px}
+.mrow{display:grid;grid-template-columns:minmax(110px,1.2fr) 1.3fr 104px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.mrn b{display:block;font:500 14px var(--sans)}
+.mrn small{font:10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.mp .bar{display:block;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.mp .bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--mute);transition:width 1s var(--ease) calc(var(--i)*55ms + .5s)}
+.mp.open .bar i{width:var(--w)}
+.mrow.g .bar i{background:var(--ok)}
+.mrv{font:500 14px var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.rkc{font-style:normal;margin-left:8px;font-size:11px;color:var(--dim)}
+.rkc.g{color:var(--ok)}.rkc s{text-decoration:none;opacity:.6}
+.mtxt{font-size:15px;color:var(--mute);margin:14px 0}
+.mtxt b{color:var(--fg);font-weight:500}
+.mnav{display:flex;justify-content:space-between;gap:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:18px}
+.mnav button{background:none;border:0;color:var(--fg);cursor:pointer;text-align:left;font-size:15px;padding:0;transition:transform .4s var(--ease)}
+.mnav button small{display:block;font:10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.mnav button:hover{transform:translateX(3px)}.mnav button:first-child:hover{transform:translateX(-3px)}
+.mnav button:last-child{text-align:right}
+
+/* changelog */
+.clog{border-top:1px solid var(--line2)}
+.clog .r{display:grid;grid-template-columns:90px 100px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.clog .d{font-family:var(--serif);font-size:28px;line-height:1}
+.clog .t{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px;justify-self:start;background:var(--bg3);color:var(--mute)}
+.clog .t.New{background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.clog .t.Improved{background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
+.clog .t.Data{background:color-mix(in srgb,var(--a) 14%,transparent);color:var(--a)}
+.clog b{font-weight:500;display:block}.clog p{color:var(--mute);font-size:15px;margin-top:2px}
+@media(max-width:640px){.clog .r{grid-template-columns:1fr;gap:8px}}
+.stamp{margin-top:34px}.stamp a{color:var(--mute)}
+
 @media(prefers-reduced-motion:reduce){
+  .mpi{opacity:1;transform:none}
+  .mp{transition:none}
   *,*::before,*::after{animation:none!important;transition:none!important}
   #curtain{display:none}
-  nav,.hero .kicker,.hero .lede,.stats{opacity:1}
+  nav,.hero .kicker,.hero .lede,.stats,.cta-row{opacity:1}
   .hero h1 .ln span,.w>span{transform:none}
-  .rv{opacity:1;transform:none;filter:none}
+  .rv{opacity:1;transform:none}
   .sc circle.p{transform:scale(1)}.lrow .bar i{width:var(--w)}.sh .idx::after{transform:none}
 }
 </style>
@@ -403,16 +513,17 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
   <a class="logo" href="#top">Frontier<i>Index</i></a>
   <div class="links" id="links">
     <span id="pill"></span>
-    <a href="#ledger">September</a><a href="#models">Models</a><a href="#bench">Benchmarks</a><a href="#duel">Duel</a><a href="#arena">Arena</a><a href="#value">Value</a><a href="#picker">Picker</a><a href="#cost">Cost</a><a href="#open">Open</a><a href="#watch">Watch</a><a href="#disagree">Caveats</a>
+    <a href="#ledger" data-s="ledger">September</a><a href="#models" data-s="models">Models</a><a href="#bench" data-s="bench">Benchmarks</a><a href="#duel" data-s="duel arena">Compare</a><a href="#value" data-s="value">Value</a><a href="#rank" data-s="rank picker cost">Tools</a><a href="#gated" data-s="gated open beyond watch table timeline disagree glossary changelog">Reference</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <canvas id="cv"></canvas>
   <div class="wrap">
-    <div class="kicker mono"><b></b>Field guide · Updated 30 September 2026</div>
+    <div class="kicker mono"><b></b>Field guide · Updated 30 September 2026 · <a href="#changelog">What's new →</a></div>
     <h1 id="h1"><span class="ln"><span>The frontier,</span></span><span class="ln"><span><em>measured.</em></span></span></h1>
     <p class="lede">More than twenty-five models shipped in September. This is who leads coding, agents, reasoning and price, plus the tools to compare them and a straight account of where the numbers disagree.</p>
+    <div class="cta-row"><a class="cta" href="#duel">Compare two models <i>→</i></a><a class="cta ghost" href="#picker">What should I use?</a><a class="cta ghost" href="#cost">Estimate my cost</a></div>
     <div class="stats">
       <div><b data-n="25" data-dec="0" data-s="+">0</b><span>Models released in September, from 16 providers</span></div>
       <div><b data-n="89.9" data-dec="1" data-s="%">0</b><span>SWE-bench Pro · Claude Opus 5.5</span></div>
@@ -423,7 +534,7 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
   <div class="scrollhint" aria-hidden="true"></div>
 </header>
 
-<div class="ticker" aria-hidden="true"><div class="track" id="t1"></div><div class="track rev" id="t2"></div></div>
+<div class="ticker" aria-hidden="true"><div class="track" id="t1"></div></div>
 
 <section id="ledger"><div class="wrap">
   <div class="sh"><div class="idx mono">01 — Ledger</div><h2>The <em>September</em> ledger</h2><p>Every notable launch in date order. Prices are USD per million tokens, input / output.</p></div>
@@ -440,6 +551,7 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
   <div class="sh"><div class="idx mono">03 — Benchmarks</div><h2>The <em>scoreboards</em></h2><p>Twelve benchmarks, four questions: can it code, can it act, can it reason, and how does it rank overall. Each list says who ran it.</p></div>
   <div class="cats rv" id="cats" role="tablist"><span id="catbar"></span></div>
   <div class="tabs rv" role="tablist" id="tabs"></div>
+  <p class="hint rv">Bars show each model's score and the orange bar marks the leader. The tag says who ran the test: an independent tracker, the vendor, or a mix.</p>
   <div class="bench rv">
     <div><h3 class="swap" id="bt"></h3><div class="src swap" id="bs"></div><p class="desc swap" id="bd"></p><p class="note swap" id="bn"></p></div>
     <div class="rows" id="rows"></div>
@@ -476,8 +588,20 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
   <p class="note2">Source: Artificial Analysis, 30 Sep 2026. The x-axis is the cost figure listed per setting, on a log scale. Muse Spark 1.3 (Meta-reported index 61) and Grok 4.7 (46) are not plotted because no comparable cost was found. The dashed ring marks the best value: the highest score you can reach for under $1.</p>
 </div></section>
 
+<section id="rank"><div class="wrap">
+  <div class="sh"><div class="idx mono">07 — Ranker</div><h2>Build your <em>ranking</em></h2><p>Tell the page what you care about. It scores every model on your priorities and re-ranks live.</p></div>
+  <div class="rkg">
+    <div class="rv">
+      <div class="pre" id="rpre"></div>
+      <div id="rsl"></div>
+      <p class="note2" id="rnote">Each benchmark is scaled 0–100 on its own range and averaged inside its category. Price scores 100 at $0.50 and 0 at $50 per million output tokens. A model needs at least two scores in a category for it to count, and must cover at least two of your priorities to be ranked. Missing priorities cost up to a 25% penalty. Models are scored only on the benchmarks they have, so one with a harder set can look worse. Scores mix vendor and tracker sources, so treat small gaps as ties.</p>
+    </div>
+    <div class="rv"><div id="rsum" aria-live="polite"></div><div id="rlist"></div><p class="excl" id="rex"></p></div>
+  </div>
+</div></section>
+
 <section id="picker"><div class="wrap">
-  <div class="sh"><div class="idx mono">07 — Picker</div><h2>What do you <em>need</em>?</h2><p>Editorial picks drawn from the numbers on this page. They are a starting point, not a verdict.</p></div>
+  <div class="sh"><div class="idx mono">08 — Picker</div><h2>What do you <em>need</em>?</h2><p>Editorial picks drawn from the numbers on this page. They are a starting point, not a verdict.</p></div>
   <div class="pick">
     <div class="chips rv" id="pk" role="group" aria-label="Use case"></div>
     <div class="res rv" id="res"></div>
@@ -485,7 +609,7 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
 </div></section>
 
 <section id="cost"><div class="wrap">
-  <div class="sh"><div class="idx mono">08 — Cost</div><h2>What will it <em>cost</em>?</h2><p>Estimate monthly spend for your workload across every priced model. Rankings reshuffle live as you move the sliders.</p></div>
+  <div class="sh"><div class="idx mono">09 — Cost</div><h2>What will it <em>cost</em>?</h2><p>Estimate monthly spend for your workload across every priced model. Rankings reshuffle live as you move the sliders.</p></div>
   <div class="calc">
     <div class="rv">
       <div class="pre" id="pre"></div>
@@ -500,7 +624,7 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
 </div></section>
 
 <section id="gated"><div class="wrap">
-  <div class="sh"><div class="idx mono">09 — Access</div><h2>The <em>gated</em> frontier</h2><p>The strongest cyber-capable models are increasingly not for sale to everyone. Access is by application.</p></div>
+  <div class="sh"><div class="idx mono">10 — Access</div><h2>The <em>gated</em> frontier</h2><p>The strongest cyber-capable models are increasingly not for sale to everyone. Access is by application.</p></div>
   <div class="gate rv">
     <div><span class="mono">Anthropic · Sep 1</span><h3>Claude Mythos 5.1</h3><p>US organisations only, through the Cyber Verification and Life Sciences Verification programmes. 60.9% on Terminal-Bench 4.0 against Fable 5.1's 55.8%.</p></div>
     <div><span class="mono">Google · Sep 2</span><h3>Gemini 3.8 Flash Cyber</h3><p>A locked-down sibling of 3.8 Flash. Same core model, a gated access envelope, no public pricing.</p></div>
@@ -514,13 +638,13 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
 </div></section>
 
 <section id="open"><div class="wrap">
-  <div class="sh"><div class="idx mono">10 — Open weights</div><h2>Outside the <em>walls</em></h2><p>The open-weight field is at rough parity with last generation's proprietary flagships, and its best models cost a fraction as much.</p></div>
+  <div class="sh"><div class="idx mono">11 — Open weights</div><h2>Outside the <em>walls</em></h2><p>The open-weight field is at rough parity with last generation's proprietary flagships, and its best models cost a fraction as much.</p></div>
   <div class="ow rv" id="ow"></div>
   <p class="note2">Mistral said in July that a larger sparse MoE family is in early access with research and government partners. No parameter count, benchmarks or ship date have been published.</p>
 </div></section>
 
 <section id="beyond"><div class="wrap">
-  <div class="sh"><div class="idx mono">11 — Beyond text</div><h2>Video &amp; <em>image</em></h2><p>Text is not the only frontier. Generative video changed hands this quarter.</p></div>
+  <div class="sh"><div class="idx mono">12 — Beyond text</div><h2>Video &amp; <em>image</em></h2><p>Text is not the only frontier. Generative video changed hands this quarter.</p></div>
   <div class="bt">
     <div class="rv"><span class="mono">Text-to-video arena</span><h3>Kling v3</h3><p class="big">1934</p><p>Leads the arena board, followed by HappyHorse 1.0 (1816) and Seedance 2.0 Fast (1747).</p></div>
     <div class="rv" style="--d:.08s"><span class="mono">Artificial Analysis</span><h3>Seedance 2.0</h3><p class="big">1213</p><p>Ranked first on raw quality with audio, with Alibaba's HappyHorse 1.0 second. Different tracker, different ordering.</p></div>
@@ -530,34 +654,40 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
 </div></section>
 
 <section id="watch"><div class="wrap">
-  <div class="sh"><div class="idx mono">12 — Watch-outs</div><h2>Dates &amp; <em>gotchas</em></h2><p>Things that will change your bill or break your integration.</p></div>
+  <div class="sh"><div class="idx mono">13 — Watch-outs</div><h2>Dates &amp; <em>gotchas</em></h2><p>Things that will change your bill or break your integration.</p></div>
   <div class="watch rv" id="wa"></div>
 </div></section>
 
 <section id="table"><div class="wrap">
-  <div class="sh"><div class="idx mono">13 — Pricing</div><h2>Every price, <em>sorted</em></h2><p>Click a column to sort. Standard API prices in USD per million tokens. A dash means not found.</p></div>
+  <div class="sh"><div class="idx mono">14 — Pricing</div><h2>Every price, <em>sorted</em></h2><p>Click a column to sort. Standard API prices in USD per million tokens. A dash means not found.</p></div>
   <div class="tools rv"><input id="q" placeholder="Filter models or labs…" aria-label="Filter models"></div>
   <div class="tw rv"><table><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table></div>
   <div class="lad"><h3 class="rv">The output-price ladder</h3><p class="rv">Log scale from $0.50 to $50 per million output tokens. A hundredfold spread between the cheapest and dearest.</p><div id="lad"></div></div>
 </div></section>
 
 <section id="timeline"><div class="wrap">
-  <div class="sh"><div class="idx mono">14 — Story</div><h2>How the month <em>unfolded</em></h2><p>Six storylines worth remembering.</p></div>
+  <div class="sh"><div class="idx mono">15 — Story</div><h2>How the month <em>unfolded</em></h2><p>Six storylines worth remembering.</p></div>
   <div class="tl" id="tl"></div>
 </div></section>
 
 <section id="disagree"><div class="wrap">
-  <div class="sh"><div class="idx mono">15 — Caveats</div><h2>Where sources <em>disagree</em></h2><p>Real conflicts found while compiling this page, and how each was handled.</p></div>
+  <div class="sh"><div class="idx mono">16 — Caveats</div><h2>Where sources <em>disagree</em></h2><p>Real conflicts found while compiling this page, and how each was handled.</p></div>
   <div class="dis rv" id="dis"></div>
 </div></section>
 
 <section id="glossary"><div class="wrap">
-  <div class="sh"><div class="idx mono">16 — Glossary</div><h2>Reading the <em>numbers</em></h2><p>What each benchmark actually measures, and why effort levels matter.</p></div>
+  <div class="sh"><div class="idx mono">17 — Glossary</div><h2>Reading the <em>numbers</em></h2><p>What each benchmark actually measures, and why effort levels matter.</p></div>
   <div class="gl rv" id="gl"></div>
   <div class="caveat rv">
     <h3>A note on trust</h3>
     <p>Compiled on 30 September 2026 from vendor announcements (Anthropic, OpenAI, Google, Meta) and third-party trackers (llm-stats, BenchLM, Artificial Analysis, Vellum, Digital Applied). Vendors choose which benchmarks to publish and run them on their own harnesses, and trackers sometimes copy vendor numbers. Treat gaps of a few points as noise, and check primary sources before any decision that matters.</p>
   </div>
+</div></section>
+
+<section id="changelog"><div class="wrap">
+  <div class="sh"><div class="idx mono">18 — Changelog</div><h2>What's <em>new</em></h2><p>Every update to this page, newest first. The data is a snapshot of 30 September 2026.</p></div>
+  <div class="clog rv" id="clog"></div>
+  <p class="note2">Figures are compiled from public vendor announcements and third-party trackers. New versions are published to the site's repository, and each one is logged here.</p>
 </div></section>
 
 <footer><div class="wrap">
@@ -579,7 +709,15 @@ footer a:hover{color:var(--fg);background-size:100% 1px}
     <li><a href="https://venturebeat.com/technology/meta-says-muse-spark-1-3-has-frontier-performance-but-its-best-results-come-from-a-model-developers-cant-broadly-use-yet" target="_blank" rel="noopener">VentureBeat · Muse Spark 1.3</a></li>
     <li><a href="https://www.mindstudio.ai/blog/qwen-3-8-max-benchmarks-explained" target="_blank" rel="noopener">MindStudio · Qwen 3.8 Max</a></li>
   </ul>
+  <p class="mono stamp">Data snapshot: 30 September 2026 · <a href="#changelog">Changelog</a></p>
 </div></footer>
+<div class="mp" id="mp" aria-hidden="true">
+  <div class="mp-bg" id="mpbg"></div>
+  <aside class="mp-panel" id="mppanel" role="dialog" aria-modal="true" aria-labelledby="mpt" tabindex="-1">
+    <button class="mp-x" id="mpx" aria-label="Close model page">×</button>
+    <div id="mpb"></div>
+  </aside>
+</div>
 <button id="top2" aria-label="Back to top">↑</button>
 
 <script>
@@ -785,7 +923,7 @@ const money=v=>v==null?"—":"$"+v;
 /* ================= RENDER ================= */
 const items=[["SWE-bench Pro","Opus 5.5","89.9%"],["GPQA","GPT-6 Astra","96.0%"],["HLE (tools)","Opus 5.5","67.7%"],["ARC-AGI-3","Astra","62.7%"],["AA Index","Opus 5.5","58"],["Terminal-Bench 4.0","Sonnet 5.5","70.6%"],["FrontierMath T4","Astra","97.6%"],["Cheapest tier","GPT-6 Luna","$0.10 in"],["Newest","GPT-6.1 Sol","Sep 29"],["GDPval Elo","Fable 5.1","1853"],["Arena #1","Opus 5","1505"],["Video arena","Kling v3","1934"],["OSWorld-Verified","Qwen3.8 Max","86.1%"]];
 const mk=a=>{const h=a.map(i=>`<span>${i[0]} <b>${i[1]}</b> <i>${i[2]}</i></span>`).join("");return h+h};
-$("#t1").innerHTML=mk(items);$("#t2").innerHTML=mk([...items].reverse());
+$("#t1").innerHTML=mk(items);
 
 $("#led").innerHTML=LEDGER.map((r,i)=>`<div class="r rv" style="--d:${(i%3)*.05}s"><div class="dt">${r[0]}</div><div class="lab"><i style="background:${LABC[r[1]]||"var(--dim)"}"></i>${r[1]}</div><div class="nm">${r[2]}<small>${r[3]}</small></div><div class="pr">${r[4]}</div></div>`).join("");
 
@@ -795,12 +933,11 @@ $("#cards").innerHTML=M.map((m,i)=>`<article class="card rv" data-lab="${m.lab}"
  <div class="top"><span class="mono">${dlabel(m.d)}</span><span class="tag">${m.tag}</span></div>
  <h3>${m.n}</h3><div class="co"><i></i>${m.co}${m.lab=="Open weights"?" · open weights":""}</div><p>${m.t}</p>
  <div class="kv"><div><small>Context</small><b>${m.ctx}</b></div><div><small>In / out $/M</small><b>${money(m.pin)} / ${money(m.pout)}</b></div></div>
- <div class="bm">${m.bm.map(b=>`<span>${b[0]} <b>${b[1]}</b></span>`).join("")}</div></div></article>`).join("");
+ <div class="bm">${m.bm.map(b=>`<span>${b[0]} <b>${b[1]}</b></span>`).join("")}</div><div class="acts"><button class="dtl" data-model="${m.n}">Details <i>→</i></button>${D[m.n]?`<button class="cmp" data-n="${m.n}">Compare <i>→</i></button>`:""}</div></div></article>`).join("");
 $$(".ci").forEach(c=>{
   c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
     c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%");
-    if(!RM){c.style.setProperty("--ry",((x-.5)*6)+"deg");c.style.setProperty("--rx",((.5-y)*6)+"deg")}});
-  c.addEventListener("pointerleave",()=>{c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")});
+  });
 });
 $("#fchips").addEventListener("click",e=>{
   const b=e.target.closest("button");if(!b)return;
@@ -898,6 +1035,7 @@ $("#drand").addEventListener("click",()=>{let a,b,t=0;do{a=names[Math.random()*n
 $("#dcopy").addEventListener("click",async e=>{const u=`${location.origin}${location.pathname}?a=${encodeURIComponent($("#da").value)}&b=${encodeURIComponent($("#db").value)}#duel`,b=e.currentTarget;
   try{await navigator.clipboard.writeText(u);b.textContent="Copied ✓"}catch{b.textContent="Copy failed — use the address bar"}setTimeout(()=>b.textContent="Copy link to this matchup",2000)});
 duel();
+document.addEventListener("click",e=>{const t=e.target.closest(".cmp");if(!t)return;const n=t.dataset.n;let o=$("#db").value;if(o==n)o=$("#da").value==n?"GPT-6 Astra":$("#da").value;setPair(n,o);$("#duel").scrollIntoView({behavior:RM?"auto":"smooth"})});
 
 (function(){
   const W=900,H=460,L=64,R=34,T=24,Bm=58,xl=Math.log10(.25),xh=Math.log10(10);
@@ -929,7 +1067,7 @@ duel();
 let pidx=0;
 $("#pk").innerHTML=PK.map((p,i)=>`<button aria-pressed="${i==0}">${p[0]}</button>`).join("");
 function showPick(){const p=PK[pidx];
-  $("#res").innerHTML=`<span class="mono">Recommended</span><h3>${p[1]}</h3><p>${p[2]}</p><div class="alt"><b>Also consider.</b> ${p[3]}</div>`}
+  $("#res").innerHTML=`<span class="mono">Recommended</span><h3>${p[1]}</h3><p>${p[2]}</p><div class="alt"><b>Also consider.</b> ${p[3]}</div>${MB[p[1]]?`<button class="cmp" style="margin-top:14px" data-model="${p[1]}">Full details for ${p[1]} <i>→</i></button>`:""}`}
 $("#pk").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;pidx=$$("#pk button").indexOf(b);$$("#pk button").forEach(x=>x.setAttribute("aria-pressed",x===b));
   const r=$("#res");r.classList.add("in");r.style.transition="opacity .2s,transform .3s var(--ease)";r.style.opacity=0;r.style.transform="translateY(8px)";setTimeout(()=>{showPick();r.style.opacity=1;r.style.transform="none"},RM?0:200)});
 showPick();
@@ -977,7 +1115,7 @@ function tbl(){
     let x=a[sk],y=b[sk];
     if(num.includes(sk)){x=x==null?(asc?Infinity:-Infinity):x;y=y==null?(asc?Infinity:-Infinity):y;return asc?x-y:y-x}
     return asc?String(x).localeCompare(y,undefined,{numeric:true}):String(y).localeCompare(x,undefined,{numeric:true})});
-  $("#tbody").innerHTML=rows.map(m=>`<tr><td><span class="dot" style="background:${LABC[m.co]||"var(--a)"}"></span>${m.n}</td><td>${m.co}${m.lab=="Open weights"?' <span class="oss">· open</span>':''}</td><td class="m">${m.d}</td><td class="m">${m.ctx}</td><td class="m">${money(m.pin)}</td><td class="m">${money(m.pout)}</td><td class="m">${money(m.cache)}</td></tr>`).join("");
+  $("#tbody").innerHTML=rows.map(m=>`<tr><td class="lk" data-model="${m.n}"><span class="dot" style="background:${LABC[m.co]||"var(--a)"}"></span>${m.n}</td><td>${m.co}${m.lab=="Open weights"?' <span class="oss">· open</span>':''}</td><td class="m">${m.d}</td><td class="m">${m.ctx}</td><td class="m">${money(m.pin)}</td><td class="m">${money(m.pout)}</td><td class="m">${money(m.cache)}</td></tr>`).join("");
   $$("th").forEach(t=>{t.className=t.dataset.k==sk?"s"+(asc?" asc":""):""});
 }
 $("#thead").addEventListener("click",e=>{const k=e.target.dataset.k;if(!k)return;asc=k==sk?!asc:true;sk=k;tbl()});
@@ -992,20 +1130,175 @@ $("#dis").innerHTML=DIS.map(d=>`<div><h3>${d[0]}</h3><p>${d[1]}</p></div>`).join
 $("#gl").innerHTML=G.map(g=>`<div><h3>${g[0]}</h3><p>${g[1]}</p></div>`).join("");
 
 /* ================= MOTION ================= */
+/* ---------- model pages ---------- */
+const slug=n=>n.toLowerCase().replace(/[^a-z0-9.]+/g,"-").replace(/^-|-$/g,"");
+const BySlug=Object.fromEntries(M.map(m=>[slug(m.n),m.n]));
+const KN={I:"Independent",V:"Vendor-reported",M:"Mixed"};
+function rankOf(k,name){const arr=Object.keys(D).filter(n=>D[n][k]!=null).sort((a,b)=>D[b][k]-D[a][k]);return{r:arr.findIndex(n=>D[n][k]===D[name][k])+1,n:arr.length}}
+function modelHTML(name){
+  const m=MB[name],sc=D[name]||{},ks=Object.keys(DL).filter(k=>sc[k]!=null);let i=0;
+  const rows=ks.map(k=>{
+    const {r,n}=rankOf(k,name),[lo,hi]=DDOM[k]||[0,100],pct=Math.max(2,Math.min(100,(sc[k]-lo)/(hi-lo)*100));
+    return `<div class="mrow mpi ${r==1&&n>1?"g":""}" style="--i:${i++}"><div class="mrn"><b>${DL[k]}</b><small>${DC[k]} · ${KN[DK[k]]}</small></div><span class="bar"><i style="--w:${pct}%"></i></span><div class="mrv">${fv(k,sc[k])}<em class="rkc ${r==1&&n>1?"g":""}">#${r}<s>/${n}</s></em></div></div>`}).join("");
+  const cand=ks.map(k=>({k,...rankOf(k,name)})).filter(x=>x.n>=3).map(x=>({...x,rel:(x.r-1)/(x.n-1)})).sort((a,b)=>a.rel-b.rel||b.n-a.n);
+  const st=cand.length>=2?`<b>Strongest showing:</b> ${DL[cand[0].k]} (#${cand[0].r} of ${cand[0].n}). <b>Weakest:</b> ${DL[cand[cand.length-1].k]} (#${cand[cand.length-1].r} of ${cand[cand.length-1].n}).`:"Too few comparable scores to call strengths and weaknesses. Model pages rank a model only against others with a published score on the same benchmark.";
+  const idx=M.findIndex(x=>x.n==name),pv=M[(idx-1+M.length)%M.length].n,nx=M[(idx+1)%M.length].n;
+  const spec=(a,b)=>`<div><small>${a}</small><b>${b}</b></div>`;
+  return `<div class="ey mono mpi" style="--i:0"><i style="background:${LABC[m.co]||"var(--a)"}"></i>${m.co} · ${dlabel(m.d)}${m.lab=="Open weights"?" · open weights":""}</div>
+  <h2 id="mpt" class="mpi" style="--i:1">${m.n}</h2>
+  <span class="tg2 mpi" style="--i:2">${m.tag}</span>
+  <p class="desc2 mpi" style="--i:3">${m.t}</p>
+  <div class="msp mpi" style="--i:4">${spec("Context",m.ctx)}${spec("Input $/M",money(m.pin))}${spec("Output $/M",money(m.pout))}${spec("Cache read",money(m.cache))}</div>
+  <h4 class="mpi" style="--i:5">Benchmark scores${ks.length?` · ${ks.length} of 12`:""}</h4>
+  ${rows||`<p class="mtxt mpi" style="--i:6">No comparable benchmark scores found for this model. Headline figures reported elsewhere: ${m.bm.map(b=>`${b[0]} <b>${b[1]}</b>`).join(", ")}.</p>`}
+  <p class="mtxt mpi" style="--i:${i+6}">${st}</p>
+  <div class="dact mpi" style="--i:${i+7}">${D[name]?`<button id="mpcmp">Compare with another model</button>`:""}<button id="mpcopy">Copy link to this page</button></div>
+  <div class="mnav mpi" style="--i:${i+8}"><button data-model="${pv}" data-swap="1"><small>← Previous</small>${pv}</button><button data-model="${nx}" data-swap="1"><small>Next →</small>${nx}</button></div>`;
+}
+let lastFocus=null,baseTitle=document.title;
+function showModel(name){
+  if(!MB[name])return;
+  $("#mpb").innerHTML=modelHTML(name);
+  const mp=$("#mp");
+  if(!mp.classList.contains("open")){lastFocus=document.activeElement;document.documentElement.classList.add("lock");mp.classList.add("open");mp.setAttribute("aria-hidden","false");setTimeout(()=>$("#mpx").focus({preventScroll:true}),60)}
+  else{$("#mppanel").scrollTo({top:0});}
+  document.title=`${name} — Frontier Index`;
+}
+function hideModel(){
+  const mp=$("#mp");if(!mp.classList.contains("open"))return;
+  mp.classList.remove("open");mp.setAttribute("aria-hidden","true");document.documentElement.classList.remove("lock");document.title=baseTitle;
+  if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});
+}
+function openModel(name,swap){
+  const url="#model="+slug(name);
+  if(swap&&history.state&&history.state.m)history.replaceState({m:1},"",url);
+  else history.pushState({m:1},"",url);
+  showModel(name);
+}
+function closeModel(){
+  if(history.state&&history.state.m)history.back();
+  else{hideModel();if(/^#model=/.test(location.hash))history.replaceState(null,"",location.pathname+location.search)}
+}
+function route(){
+  const m=location.hash.match(/^#model=(.+)$/);
+  if(m&&BySlug[decodeURIComponent(m[1])])showModel(BySlug[decodeURIComponent(m[1])]);else hideModel();
+}
+addEventListener("popstate",route);
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-model]");
+  if(t){e.preventDefault();openModel(t.dataset.model,!!t.dataset.swap)}
+  if(e.target.id==="mpbg"||e.target.closest("#mpx"))closeModel();
+  const c=e.target.closest("#mpcmp");
+  if(c){const n=BySlug[(location.hash.match(/^#model=(.+)$/)||[])[1]];if(n){let o=$("#db").value;if(o==n)o=$("#da").value==n?"GPT-6 Astra":$("#da").value;
+    hideModel();history.replaceState(null,"",location.pathname+location.search+"#duel");setPair(n,o);setTimeout(()=>$("#duel").scrollIntoView({behavior:RM?"auto":"smooth"}),120)}}
+  const cp=e.target.closest("#mpcopy");
+  if(cp){navigator.clipboard.writeText(location.href).then(()=>{cp.textContent="Copied ✓"},()=>{cp.textContent="Copy failed — use the address bar"});setTimeout(()=>cp.textContent="Copy link to this page",2000)}
+});
+document.addEventListener("keydown",e=>{
+  if(!$("#mp").classList.contains("open"))return;
+  if(e.key==="Escape"){closeModel();return}
+  if(e.key==="Tab"){const f=[...$("#mppanel").querySelectorAll("button,a[href]")].filter(x=>!x.disabled);if(!f.length)return;const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+});
+
+/* ---------- ranker ---------- */
+const CRIT=[{k:"Coding",c:"var(--a)",w:6},{k:"Agents",c:"var(--blue)",w:5},{k:"Reasoning",c:"var(--violet)",w:4},{k:"Price",c:"var(--ok)",w:4}];
+const RPRE=[["Balanced",[5,5,5,4]],["Coding first",[10,4,1,4]],["Researcher",[1,3,10,2]],["Agent builder",[6,10,2,5]],["Frugal",[3,3,3,10]]];
+$("#rsl").innerHTML=CRIT.map((c,i)=>`<div class="ctl"><div class="t"><span class="mono"><i class="ld" style="background:${c.c}"></i>${c.k}${c.k=="Price"?" · cheaper is better":""}</span><b id="rw${i}"></b></div><input type="range" id="rs${i}" min="0" max="10" step="1" value="${c.w}" aria-label="${c.k} importance"></div>`).join("")+`<label class="sw"><input type="checkbox" id="rfull"><span></span>Only rank models with data for every priority</label>`;
+$("#rpre").innerHTML=RPRE.map((p,i)=>`<button data-i="${i}">${p[0]}</button>`).join("");
+const CATN={};Object.keys(DL).forEach(k=>CATN[DC[k]]=(CATN[DC[k]]||0)+1);
+const catScore=(n,cat)=>{const ks=Object.keys(DL).filter(k=>DC[k]==cat&&D[n][k]!=null);return ks.length>=Math.min(2,CATN[cat])?ks.reduce((a,k)=>{const [lo,hi]=DDOM[k]||[0,100];return a+Math.max(0,Math.min(100,(D[n][k]-lo)/(hi-lo)*100))},0)/ks.length:null};
+const priceScore=n=>{const p=MB[n]&&MB[n].pout;return p==null?null:Math.max(0,Math.min(100,100*(Math.log(50)-Math.log(p))/(Math.log(50)-Math.log(.5))))};
+const critScore=(n,c)=>c.k=="Price"?priceScore(n):catScore(n,c.k);
+const rr=names.map(n=>{const d=document.createElement("div");d.className="rr";d.hidden=true;
+  d.innerHTML=`<span class="rn"></span><button class="nm" data-model="${n}"><span>${n}</span><small></small></button><span class="bar">${CRIT.map(c=>`<i style="background:${c.c}"></i>`).join("")}</span><span class="v">0</span>`;
+  $("#rlist").appendChild(d);return{n,d,rn:d.children[0],sm:d.querySelector("small"),segs:[...d.querySelectorAll(".bar i")],v:d.querySelector(".v"),cur:0}});
+function rank(){
+  CRIT.forEach((c,i)=>{const e=$("#rs"+i);c.w=+e.value;$("#rw"+i).textContent=c.w?c.w:"Off";e.style.setProperty("--p",c.w*10+"%")});
+  const act=CRIT.filter(c=>c.w>0),full=$("#rfull").checked,tot=act.reduce((a,c)=>a+c.w,0);
+  $$("#rpre button").forEach(b=>{const w=RPRE[b.dataset.i][1];b.style.borderColor=w.every((x,i)=>x===CRIT[i].w)?"var(--fg)":"";b.style.color=w.every((x,i)=>x===CRIT[i].w)?"var(--fg)":""});
+  if(!act.length){$("#rsum").innerHTML='<span class="mono">Your top pick</span><h3>Nothing selected</h3><p>Raise at least one slider above Off.</p>';rr.forEach(r=>r.d.hidden=true);$("#rex").textContent="";return}
+  const res=[],excl=[];
+  rr.forEach(r=>{
+    const sc=CRIT.map(c=>c.w>0?critScore(r.n,c):null),cov=act.filter(c=>sc[CRIT.indexOf(c)]!=null),miss=act.filter(c=>sc[CRIT.indexOf(c)]==null).map(c=>c.k.toLowerCase());
+    const thin=cov.length<Math.min(2,act.length);if(thin||(full&&miss.length)){excl.push({n:r.n,miss,none:thin});return}
+    const wc=cov.reduce((a,c)=>a+c.w,0),raw=cov.reduce((a,c)=>a+c.w*sc[CRIT.indexOf(c)],0)/wc,f=.75+.25*(wc/tot);
+    res.push({r,score:raw*f,segs:CRIT.map((c,i)=>sc[i]!=null&&c.w>0?c.w*sc[i]/wc*f:0),miss,sc});
+  });
+  res.sort((a,b)=>b.score-a.score);
+  const first=new Map(rr.map(r=>[r.d,r.d.hidden?null:r.d.getBoundingClientRect().top]));
+  const inSet=new Set(res.map(x=>x.r));
+  res.forEach(x=>$("#rlist").appendChild(x.r.d));
+  rr.forEach(r=>{if(!inSet.has(r)){r.d.hidden=true;r.segs.forEach(s=>s.style.width="0%");r.cur=0;$("#rlist").appendChild(r.d)}});
+  res.forEach((x,i)=>{
+    const r=x.r,was=first.get(r.d);r.d.hidden=false;
+    if(was!=null&&!RM){const dy=was-r.d.getBoundingClientRect().top;if(dy){r.d.style.transition="none";r.d.style.transform=`translateY(${dy}px)`;requestAnimationFrame(()=>requestAnimationFrame(()=>{r.d.style.transition="";r.d.style.transform=""}))}}
+    r.rn.textContent=i+1;r.sm.textContent=Object.keys(D[r.n]).length+" scores"+(x.miss.length?" · no "+x.miss.join(", ")+" data":"");r.d.classList.toggle("part",x.miss.length>0);
+    r.segs.forEach((s,j)=>s.style.width=x.segs[j].toFixed(1)+"%");
+    tween(r.cur,x.score,700,v=>r.v.textContent=v.toFixed(0));r.cur=x.score;
+  });
+  const t=res[0];
+  if(t){
+    const have=CRIT.map((c,i)=>({c,v:t.sc[i]})).filter(o=>o.v!=null&&o.c.w>0).sort((a,b)=>b.v-a.v),b=have[0],w=have[have.length-1];
+    $("#rsum").innerHTML=`<span class="mono">Your top pick</span><h3>${t.r.n}</h3><p>Scores ${t.score.toFixed(0)} out of 100 on your mix.${have.length>1?` Strongest on ${b.c.k.toLowerCase()} (${b.v.toFixed(0)}), weakest on ${w.c.k.toLowerCase()} (${w.v.toFixed(0)}).`:""}${t.miss.length?` No ${t.miss.join(", ")} data for this model.`:""}</p><button data-model="${t.r.n}">See full details →</button>`;
+  }else $("#rsum").innerHTML='<span class="mono">Your top pick</span><h3>No match</h3><p>No model has enough data for these priorities. Try fewer priorities, or turn off "only rank models with data for every priority".</p>';
+  const thinN=excl.filter(e=>e.none).map(e=>e.n),partN=excl.filter(e=>!e.none);
+  $("#rex").textContent=(thinN.length?"Not ranked, too little data: "+thinN.join(", ")+". ":"")+(partN.length?"Left out for missing priorities: "+partN.map(e=>`${e.n} (no ${e.miss.join(", ")})`).join(", ")+".":"");
+}
+CRIT.forEach((c,i)=>$("#rs"+i).addEventListener("input",rank));
+$("#rfull").addEventListener("change",rank);
+$("#rpre").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;RPRE[b.dataset.i][1].forEach((w,i)=>$("#rs"+i).value=w);rank()});
+rank();
+
+/* ---------- changelog ---------- */
+const CL=[
+ ["Sep 30","New","Model pages, custom ranker and this changelog","Every model has its own shareable page (link ends in #model=…). The ranker scores models on the priorities you weight. This log records every change."],
+ ["Sep 30","Improved","Head-to-head rebuilt","Ties inside measurement noise, category filter, model profiles, shareable matchup links and 15 selectable models."],
+ ["Sep 30","Data","GPT-6.1 Sol and Claude Sonnet 5.5 added","Released Sep 29 and Sep 28. Prices, effort levels and benchmarks from Vellum, DataCamp and vendor write-ups."],
+ ["Sep 30","New","Arena, open weights, video and watch-outs","Two Arena snapshots, ten open-weight families, the video arena, and dated price and API changes."],
+ ["Sep 30","New","First release","September ledger, 12 benchmarks with source labels, value chart, picker, cost calculator and the list of source disagreements."]
+];
+$("#clog").innerHTML=CL.map(c=>`<div class="r"><div class="d">${c[0]}</div><span class="t ${c[1]}">${c[1]}</span><div><b>${c[2]}</b><p>${c[3]}</p></div></div>`).join("");
+route();
+
+function pillify(box){
+  const p=document.createElement("span");p.className="tp";box.classList.add("pl");box.prepend(p);let first=true;
+  const move=()=>{
+    if(box.firstChild!==p)box.prepend(p);
+    const b=box.querySelector('[aria-pressed="true"],[aria-selected="true"]');
+    if(!b){p.style.opacity=0;return}
+    p.style.opacity=1;p.style.width=b.offsetWidth+"px";p.style.height=b.offsetHeight+"px";p.style.transform=`translate(${b.offsetLeft}px,${b.offsetTop}px)`;
+    if(first){p.style.transition="none";requestAnimationFrame(()=>requestAnimationFrame(()=>{p.style.transition="";first=false}))}
+  };
+  new MutationObserver(move).observe(box,{subtree:true,childList:true,attributes:true,attributeFilter:["aria-pressed","aria-selected"]});
+  addEventListener("resize",move);box._move=move;move();
+}
+["#fchips","#tabs","#atabs","#dpre","#dcats"].forEach(id=>pillify($(id)));
+document.fonts&&document.fonts.ready.then(()=>["#fchips","#tabs","#atabs","#dpre","#dcats"].forEach(id=>$(id)._move()));
+// arrow-key navigation inside tab groups
+document.addEventListener("keydown",e=>{
+  if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+  const b=e.target.closest&&e.target.closest("[role=tablist] button,[role=group] button");if(!b)return;
+  const list=[...b.parentElement.querySelectorAll("button")],i=list.indexOf(b),n=list[(i+(e.key==="ArrowRight"?1:-1)+list.length)%list.length];
+  if(n){e.preventDefault();n.focus();n.click()}
+});
+// gentle magnetic hover on hero buttons
+if(!RM)$$(".cta").forEach(b=>{b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.16}px,${(e.clientY-r.top-r.height/2)*.26}px)`});b.addEventListener("pointerleave",()=>b.style.transform="")});
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
 $$(".rv,.sh,.sc,.lrow").forEach(e=>io.observe(e));
 
 $$("[data-n]").forEach(el=>{const to=+el.dataset.n,dec=+el.dataset.dec,s=el.dataset.s;
   setTimeout(()=>tween(0,to,1800,v=>el.textContent=v.toFixed(dec)+s),RM?0:2000)});
 
-const links=$$("#links a"),pill=$("#pill"),secs=links.map(a=>$(a.getAttribute("href")));
+const links=$$("#links a"),pill=$("#pill"),secMap=links.map(a=>a.dataset.s.split(" ").map(id=>document.getElementById(id)));
 function setPill(a){if(!a){pill.style.opacity=0;return}pill.style.opacity=1;pill.style.width=a.offsetWidth+"px";pill.style.transform=`translateX(${a.offsetLeft}px)`;
   const box=$("#links");if(box.scrollWidth>box.clientWidth)box.scrollTo({left:a.offsetLeft-box.clientWidth/2+a.offsetWidth/2,behavior:"smooth"})}
 let ticking=false,lastOn=null;
 function onScroll(){
   ticking=false;const y=scrollY,max=document.body.scrollHeight-innerHeight;
   $("#progress").style.transform=`scaleX(${max>0?y/max:0})`;
-  let on=null;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<innerHeight*.45)on=links[i]});
+  let on=null;secMap.forEach((g,i)=>{if(g.some(s=>{if(!s)return false;const r=s.getBoundingClientRect();return r.top<innerHeight*.45&&r.bottom>innerHeight*.45}))on=links[i]});
   if(y<innerHeight*.6)on=null;
   if(on!==lastOn){lastOn=on;links.forEach(l=>l.classList.toggle("on",l===on));setPill(on)}
   if(!RM&&y<innerHeight){const h=$("#h1");h.style.transform=`translateY(${y*.18}px)`;h.style.opacity=Math.max(0,1-y/(innerHeight*.8))}
@@ -1016,7 +1309,6 @@ addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(o
 addEventListener("resize",()=>setPill(lastOn));
 onScroll();
 $("#top2").addEventListener("click",()=>scrollTo({top:0,behavior:RM?"auto":"smooth"}));
-addEventListener("pointermove",e=>{const g=$("#glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"},{passive:true});
 
 (function(){
   const cv=$("#cv"),x=cv.getContext("2d");let W,H,P=[],mx=-1e3,my=-1e3,vis=true;

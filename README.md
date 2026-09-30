@@ -26,4 +26,8 @@ To skip the workflow, set Source to **Deploy from a branch**, choose `main` and 
 
 All content lives in the `<script>` block at the bottom of `index.html`, in plain arrays and objects (`M` for models, `B` for benchmarks, `AR` for arenas, `LEDGER`, `DIS` and so on). Edit those and push.
 
+When you change anything, add an entry to the `CL` array (the changelog), update the "Updated …" date in the hero and the "Data snapshot" line in the footer, then push.
+
+Model pages open from `#model=<slug>` links, for example `#model=gpt-6-astra`. The slug is the model name in lower case with punctuation replaced by hyphens. Adding a model to `M` (and, if it has benchmark scores, to `D`) creates its page automatically.
+
 Figures were compiled on 30 September 2026 from vendor announcements and third-party trackers, and they disagree in places. The page lists the conflicts in its "Where sources disagree" section. Check primary sources before relying on any number.
