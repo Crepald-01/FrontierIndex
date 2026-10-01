@@ -520,7 +520,7 @@ html.lock{overflow:hidden}
 <header class="hero" id="top">
   <canvas id="cv"></canvas>
   <div class="wrap">
-    <div class="kicker mono"><b></b>Field guide · Updated 30 September 2026 · <a href="#changelog">What's new →</a></div>
+    <div class="kicker mono"><b></b>Field guide · Updated 1 October 2026 · <a href="#changelog">What's new →</a></div>
     <h1 id="h1"><span class="ln"><span>The frontier,</span></span><span class="ln"><span><em>measured.</em></span></span></h1>
     <p class="lede">More than twenty-five models shipped in September. This is who leads coding, agents, reasoning and price, plus the tools to compare them and a straight account of where the numbers disagree.</p>
     <div class="cta-row"><a class="cta" href="#duel">Compare two models <i>→</i></a><a class="cta ghost" href="#picker">What should I use?</a><a class="cta ghost" href="#cost">Estimate my cost</a></div>
@@ -542,13 +542,13 @@ html.lock{overflow:hidden}
 </div></section>
 
 <section id="models"><div class="wrap">
-  <div class="sh"><div class="idx mono">02 — Models</div><h2>The <em>contenders</em></h2><p>Seventeen models that matter right now. Chips show vendor or tracker scores; read the caveats before comparing across chips.</p></div>
+  <div class="sh"><div class="idx mono">02 — Models</div><h2>The <em>contenders</em></h2><p>Eighteen models that matter right now. Chips show vendor or tracker scores; read the caveats before comparing across chips.</p></div>
   <div class="chips rv" id="fchips" role="group" aria-label="Filter by lab"></div>
   <div class="grid" id="cards"></div>
 </div></section>
 
 <section id="bench"><div class="wrap">
-  <div class="sh"><div class="idx mono">03 — Benchmarks</div><h2>The <em>scoreboards</em></h2><p>Twelve benchmarks, four questions: can it code, can it act, can it reason, and how does it rank overall. Each list says who ran it.</p></div>
+  <div class="sh"><div class="idx mono">03 — Benchmarks</div><h2>The <em>scoreboards</em></h2><p>Fifteen benchmarks, four questions: can it code, can it act, can it reason, and how does it rank overall. Each list says who ran it.</p></div>
   <div class="cats rv" id="cats" role="tablist"><span id="catbar"></span></div>
   <div class="tabs rv" role="tablist" id="tabs"></div>
   <p class="hint rv">Bars show each model's score and the orange bar marks the leader. The tag says who ran the test: an independent tracker, the vendor, or a mix.</p>
@@ -585,7 +585,7 @@ html.lock{overflow:hidden}
 <section id="value"><div class="wrap">
   <div class="sh"><div class="idx mono">06 — Value</div><h2>Smart <em>per dollar</em></h2><p>Artificial Analysis Intelligence Index against its cost figure, one dot per model and effort setting. Up and to the left is better.</p></div>
   <div class="sc rv" id="sc"><div id="tip"></div></div>
-  <p class="note2">Source: Artificial Analysis, 30 Sep 2026. The x-axis is the cost figure listed per setting, on a log scale. Muse Spark 1.3 (Meta-reported index 61) and Grok 4.7 (46) are not plotted because no comparable cost was found. The dashed ring marks the best value: the highest score you can reach for under $1.</p>
+  <p class="note2">Source: Artificial Analysis, 30 Sep 2026. The x-axis is the cost figure listed per setting, on a log scale. Muse Spark 1.3 (Meta-reported index 61), Grok 4.7 (46) and Gemini 4 Argon (not yet scored) are not plotted because no comparable cost was found. The dashed ring marks the best value: the highest score you can reach for under $1.</p>
 </div></section>
 
 <section id="rank"><div class="wrap">
@@ -617,7 +617,7 @@ html.lock{overflow:hidden}
       <div class="ctl"><div class="t"><span class="mono">Output per request</span><b id="vo"></b></div><input type="range" id="so" min="0" max="100" value="45" aria-label="Output tokens per request"></div>
       <div class="ctl"><div class="t"><span class="mono">Requests per day</span><b id="vr"></b></div><input type="range" id="sr" min="0" max="100" value="50" aria-label="Requests per day"></div>
       <div class="ctl"><div class="t"><span class="mono">Cache hit rate</span><b id="vc"></b></div><input type="range" id="sc2" min="0" max="90" value="50" aria-label="Cache hit rate"></div>
-      <p class="note2" style="margin-top:0">Where no cache-read price was found, cached tokens are billed at the full input price. GPT-6.x requests over 272K input tokens carry a surcharge that is not modelled. Gemini 3.8 Flash uses its promotional price, which ends 31 Dec. Monthly cost assumes 30 days.</p>
+      <p class="note2" style="margin-top:0">Where no cache-read price was found, cached tokens are billed at the full input price. GPT-6.x requests over 272K input tokens carry a surcharge that is not modelled. Gemini 3.8 Flash uses its promotional price, which ends 31 Dec. Gemini 4 Argon uses its $4 / $20 list price; the $2 / $10 launch price has no stated end date, and the model is not publicly available yet. Monthly cost assumes 30 days.</p>
     </div>
     <div class="rv" id="cl"></div>
   </div>
@@ -626,13 +626,14 @@ html.lock{overflow:hidden}
 <section id="gated"><div class="wrap">
   <div class="sh"><div class="idx mono">10 — Access</div><h2>The <em>gated</em> frontier</h2><p>The strongest cyber-capable models are increasingly not for sale to everyone. Access is by application.</p></div>
   <div class="gate rv">
+    <div><span class="mono">Google · Sep 30</span><h3>Gemini 4 Argon</h3><p>Limited to 650+ vetted cyber defenders through Fairwind, including CrowdStrike, Palo Alto Networks and Wiz. No public API or model ID. General access comes later, starting with paid API customers and AI Ultra subscribers.</p></div>
     <div><span class="mono">Anthropic · Sep 1</span><h3>Claude Mythos 5.1</h3><p>US organisations only, through the Cyber Verification and Life Sciences Verification programmes. 60.9% on Terminal-Bench 4.0 against Fable 5.1's 55.8%.</p></div>
     <div><span class="mono">Google · Sep 2</span><h3>Gemini 3.8 Flash Cyber</h3><p>A locked-down sibling of 3.8 Flash. Same core model, a gated access envelope, no public pricing.</p></div>
     <div><span class="mono">OpenAI · Sep 3</span><h3>Astra via Daybreak</h3><p>Cyber defenders get access to GPT-6 Astra immediately through the Daybreak programme, ahead of the general rollout.</p></div>
     <div><span class="mono">Meta · Sep 2</span><h3>Muse Spark 1.3 Max</h3><p>The strongest configuration is in safety testing and limited to partner preview. The shipping tier is xhigh.</p></div>
   </div>
   <div class="two">
-    <div class="rv"><h3>Cyber &amp; agents</h3><p class="mono" style="margin-bottom:12px">OpenAI-reported</p><div id="cy"></div></div>
+    <div class="rv"><h3>Cyber &amp; agents</h3><p class="mono" style="margin-bottom:12px">OpenAI- and Google-reported</p><div id="cy"></div></div>
     <div class="rv"><h3>Alignment</h3><p class="mono" style="margin-bottom:12px">OpenAI-reported · Astra vs Sol</p><div id="al"></div><p class="note2">Vendor-run and self-reported. Independent replication was not found.</p></div>
   </div>
 </div></section>
@@ -666,7 +667,7 @@ html.lock{overflow:hidden}
 </div></section>
 
 <section id="timeline"><div class="wrap">
-  <div class="sh"><div class="idx mono">15 — Story</div><h2>How the month <em>unfolded</em></h2><p>Six storylines worth remembering.</p></div>
+  <div class="sh"><div class="idx mono">15 — Story</div><h2>How the month <em>unfolded</em></h2><p>Seven storylines worth remembering.</p></div>
   <div class="tl" id="tl"></div>
 </div></section>
 
@@ -680,12 +681,12 @@ html.lock{overflow:hidden}
   <div class="gl rv" id="gl"></div>
   <div class="caveat rv">
     <h3>A note on trust</h3>
-    <p>Compiled on 30 September 2026 from vendor announcements (Anthropic, OpenAI, Google, Meta) and third-party trackers (llm-stats, BenchLM, Artificial Analysis, Vellum, Digital Applied). Vendors choose which benchmarks to publish and run them on their own harnesses, and trackers sometimes copy vendor numbers. Treat gaps of a few points as noise, and check primary sources before any decision that matters.</p>
+    <p>Compiled on 30 September and 1 October 2026 from vendor announcements (Anthropic, OpenAI, Google, Meta) and third-party trackers (llm-stats, BenchLM, Artificial Analysis, Vellum, Digital Applied). Vendors choose which benchmarks to publish and run them on their own harnesses, and trackers sometimes copy vendor numbers. Treat gaps of a few points as noise, and check primary sources before any decision that matters.</p>
   </div>
 </div></section>
 
 <section id="changelog"><div class="wrap">
-  <div class="sh"><div class="idx mono">18 — Changelog</div><h2>What's <em>new</em></h2><p>Every update to this page, newest first. The data is a snapshot of 30 September 2026.</p></div>
+  <div class="sh"><div class="idx mono">18 — Changelog</div><h2>What's <em>new</em></h2><p>Every update to this page, newest first. The data is a snapshot of 1 October 2026.</p></div>
   <div class="clog rv" id="clog"></div>
   <p class="note2">Figures are compiled from public vendor announcements and third-party trackers. New versions are published to the site's repository, and each one is logged here.</p>
 </div></section>
@@ -709,7 +710,7 @@ html.lock{overflow:hidden}
     <li><a href="https://venturebeat.com/technology/meta-says-muse-spark-1-3-has-frontier-performance-but-its-best-results-come-from-a-model-developers-cant-broadly-use-yet" target="_blank" rel="noopener">VentureBeat · Muse Spark 1.3</a></li>
     <li><a href="https://www.mindstudio.ai/blog/qwen-3-8-max-benchmarks-explained" target="_blank" rel="noopener">MindStudio · Qwen 3.8 Max</a></li>
   </ul>
-  <p class="mono stamp">Data snapshot: 30 September 2026 · <a href="#changelog">Changelog</a></p>
+  <p class="mono stamp">Data snapshot: 1 October 2026 · <a href="#changelog">Changelog</a></p>
 </div></footer>
 <div class="mp" id="mp" aria-hidden="true">
   <div class="mp-bg" id="mpbg"></div>
@@ -728,6 +729,7 @@ const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 /* ================= DATA ================= */
 const LABC={Anthropic:"var(--a)",OpenAI:"var(--ok)",Google:"var(--blue)",xAI:"var(--violet)",Meta:"var(--blue)",Alibaba:"var(--pink)",DeepSeek:"var(--pink)",Xiaomi:"var(--pink)","Moonshot AI":"var(--pink)","Z.AI":"var(--pink)"};
 const M=[
+ {n:"Gemini 4 Argon",co:"Google",lab:"Google",d:"2026-09-30",ctx:"—",pin:4,pout:20,cache:.20,tag:"Gated · leads DeepSWE",t:"Announced Sep 30 and limited to vetted cyber defenders through Google's Fairwind programme. No public API or model ID yet. 1M-token output limit; input context undisclosed. Launch pricing is $2 / $10 with $0.10 cache reads; the list price shown here is $4 / $20.",bm:[["DeepSWE",77.9],["AutomationBench",51.3],["Vals Index",68.9]]},
  {n:"GPT-6.1 Sol",co:"OpenAI",lab:"OpenAI",d:"2026-09-29",ctx:"1.05M",pin:2,pout:10,cache:.10,tag:"Newest · DevDay",t:"Near-Astra coding and computer use at about a fifth of the price. Five effort levels from low to max, and 128K max output.",bm:[["DeepSWE",75.2],["OSWorld 2.0",71.4],["TB-Science",57.0]]},
  {n:"Claude Sonnet 5.5",co:"Anthropic",lab:"Anthropic",d:"2026-09-28",ctx:"1M",pin:2,pout:10,cache:.20,tag:"Beats Opus on terminal",t:"Same price as Sonnet 5, about 30% faster, and ahead of Opus 5.5 on Terminal-Bench 4.0 and AutomationBench.",bm:[["Term-Bench 4.0",70.6],["SWE-bench Pro",81.3],["AutomationBench",44.7]]},
  {n:"Claude Opus 5.5",co:"Anthropic",lab:"Anthropic",d:"2026-09-22",ctx:"1M",pin:4,pout:20,cache:.20,tag:"#1 on AA Index",t:"Fable-level performance at roughly 40% less than Opus 5. Tops the Artificial Analysis index at 58 on max effort.",bm:[["SWE-bench Pro",89.9],["Term-Bench 4.0",66.4],["HLE (tools)",67.7]]},
@@ -744,11 +746,12 @@ const M=[
  {n:"Qwen3.8 Max",co:"Alibaba",lab:"Open weights",d:"2026-08-08",ctx:"—",pin:null,pout:null,cache:null,tag:"2.4T open weights",t:"Leads the OSWorld-Verified board at 86.1%, but trails on DeepSWE. Too large to self-host in practice.",bm:[["OSWorld-Verified",86.1],["GPQA",92.6],["DeepSWE",56.6]]},
  {n:"Claude Opus 5",co:"Anthropic",lab:"Anthropic",d:"2026-07",ctx:"1M",pin:null,pout:null,cache:null,tag:"Arena #1 (BenchLM)",t:"Took the Arena top spot in July. Still the reference point for most September launch comparisons.",bm:[["ARC-AGI-3",30.2],["HLE (tools)",63.6],["Arena",1505]]},
  {n:"Kimi K3",co:"Moonshot AI",lab:"Open weights",d:"2026-08",ctx:"—",pin:null,pout:null,cache:null,tag:"Open-source science",t:"93.5% on GPQA and 91.2% on BrowseComp. A K2.8 Preview followed on 11 September.",bm:[["GPQA",93.5],["BrowseComp",91.2]]},
- {n:"Gemini 3.1 Pro",co:"Google",lab:"Google",d:"2026-02-19",ctx:"—",pin:null,pout:null,cache:null,tag:"Google's newest Pro",t:"Still Google's newest Pro-tier model seven months on. Scores 94.3% on GPQA and 80.6% on SWE-bench Verified.",bm:[["GPQA",94.3],["SWE-bench V.",80.6]]}
+ {n:"Gemini 3.1 Pro",co:"Google",lab:"Google",d:"2026-02-19",ctx:"—",pin:null,pout:null,cache:null,tag:"Last public Pro",t:"Google's last publicly available Pro-tier model, from February. Scores 94.3% on GPQA and 80.6% on SWE-bench Verified.",bm:[["GPQA",94.3],["SWE-bench V.",80.6]]}
 ];
 const dlabel=d=>d.length==10?new Date(d+"T00:00:00Z").toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:"UTC"}):new Date(d+"-01T00:00:00Z").toLocaleDateString("en-US",{month:"short",timeZone:"UTC"});
 
 const LEDGER=[
+ ["Sep 30","Google","Gemini 4 Argon","Gated to 650+ vetted cyber defenders via Fairwind. No public API or model ID yet. 1M-token output limit.","$2 / $10 intro · $4 / $20 list"],
  ["Sep 29","OpenAI","GPT-6.1 Sol","Announced at DevDay. 1.05M context, 128K max output.","$2 / $10"],
  ["Sep 28","Anthropic","Claude Sonnet 5.5","1M context. Terminal-Bench 4.0 70.6%.","$2 / $10"],
  ["Sep 28","ElevenLabs","Eleven v4","90+ languages, 72% launch discount to Oct 12.","$0.08 / 1K chars"],
@@ -770,20 +773,23 @@ const LEDGER=[
 ];
 
 const CATS={
- "Coding":["SWE-bench Verified","SWE-bench Pro","DeepSWE v1.1","Terminal-Bench 4.0"],
- "Agents":["OSWorld 2.0","AutomationBench","BrowseComp","GDPval-AA v2"],
- "Reasoning":["GPQA Diamond","Humanity's Last Exam","FrontierMath Tier 4","ARC-AGI-3"],
+ "Coding":["SWE-bench Verified","SWE-bench Pro","DeepSWE v1.1","FrontierSWE v2","Terminal-Bench 4.0"],
+ "Agents":["OSWorld 2.0","AutomationBench","Vals Index","BrowseComp","GDPval-AA v2"],
+ "Reasoning":["GPQA Diamond","Humanity's Last Exam","FrontierMath Tier 4","ARC-AGI-3","GraphWalks 256K–1M"],
  "Overall":["AA Intelligence Index"]
 };
 const B={
  "SWE-bench Verified":{k:"I",s:"llm-stats tracker",d:"Resolve real GitHub issues in real repositories, graded by the project's own tests.",n:"Anthropic holds seven of the top eight. Nearly saturated, so attention has moved to SWE-bench Pro and DeepSWE. One tracker lists GPT-5.6 Sol at 96.2%, which I could not corroborate.",r:[["Claude Fable 5",95.0],["Claude Mythos Preview",93.9],["Claude Opus 4.8",88.6],["Claude Opus 4.7",87.6],["Claude Sonnet 5",85.2],["Claude Opus 4.5",80.9],["Claude Opus 4.6",80.8],["DeepSeek V4 Pro Max",80.6]]},
  "SWE-bench Pro":{k:"V",s:"Anthropic-reported",d:"A harder, contamination-resistant successor with longer, multi-file tasks.",n:"Only Anthropic's own scores were found, so this is not a cross-lab ranking. Sonnet 5.5 nearly doubles the score of Sonnet 5 in one generation.",r:[["Claude Opus 5.5",89.9],["Claude Sonnet 5.5",81.3],["Claude Sonnet 5",63.2]]},
- "DeepSWE v1.1":{k:"M",s:"Vendor-reported, mixed harnesses",d:"113 long-horizon agentic coding tasks. Scores come from each lab's own run unless noted.",n:"The top four are within about one point, which is inside harness noise. Meta's 75.4 is from its own scorecard, and Grok 4.7's 71.0 is xAI's self-report.",r:[["Muse Spark 1.3",75.4],["GPT-6.1 Sol (high)",75.2],["GPT-6 Astra",74.1],["Claude Opus 5",74.0],["GPT-5.6 Sol",72.7],["Claude Sonnet 5.5",71.0],["Grok 4.7",71.0],["Gemini 3.8 Flash",71.0],["Claude Fable 5.1",67.4],["Qwen3.8 Max",56.6]]},
- "Terminal-Bench 4.0":{k:"M",s:"Vendor + Artificial Analysis",d:"Command-line agent tasks: build, debug, configure and recover in a real shell.",n:"Sonnet 5.5 leading Opus 5.5 is Anthropic's figure. Artificial Analysis puts Sonnet 5.5 at 64% and Opus 5.5 and Astra at 60%, so the order is fragile. Grok 4.7 and DeepSeek figures are from Artificial Analysis.",r:[["Claude Sonnet 5.5",70.6],["Claude Opus 5.5",66.4],["Claude Mythos 5.1",60.9],["GPT-6 Astra",57.7],["Claude Fable 5.1",55.8],["Claude Opus 5",52.3],["Claude Fable 5",42.0],["GPT-5.6 Sol",37.3],["DeepSeek V4.1 Flash",27],["Grok 4.7",26]]},
+ "DeepSWE v1.1":{k:"M",s:"Vendor-reported, mixed harnesses",d:"113 long-horizon agentic coding tasks. Scores come from each lab's own run unless noted.",n:"Gemini 4 Argon leads at 77.9% on Google's own run, but it is gated and unverified. Below it the field is within about two points, which is inside harness noise. Meta's 75.4 is from its own scorecard, Opus 5.5's 74.2 is from Google's table, and Grok 4.7's 71.0 is xAI's self-report.",r:[["Gemini 4 Argon",77.9],["Muse Spark 1.3",75.4],["GPT-6.1 Sol (high)",75.2],["Claude Opus 5.5",74.2],["GPT-6 Astra",74.1],["Claude Opus 5",74.0],["GPT-5.6 Sol",72.7],["Claude Sonnet 5.5",71.0],["Grok 4.7",71.0],["Gemini 3.8 Flash",71.0],["Claude Fable 5.1",67.4],["Qwen3.8 Max",56.6]]},
+ "Terminal-Bench 4.0":{k:"M",s:"Vendor + Artificial Analysis",d:"Command-line agent tasks: build, debug, configure and recover in a real shell.",n:"Sonnet 5.5 leading Opus 5.5 is Anthropic's figure. Artificial Analysis puts Sonnet 5.5 at 64% and Opus 5.5 and Astra at 60%, so the order is fragile. Grok 4.7 and DeepSeek figures are from Artificial Analysis. Argon's 57.4 is from Google's launch table, which lists Astra at 58.2 and Fable 5.1 at 57.9; their own vendors say 57.7 and 55.8.",r:[["Claude Sonnet 5.5",70.6],["Claude Opus 5.5",66.4],["Claude Mythos 5.1",60.9],["GPT-6 Astra",57.7],["Gemini 4 Argon",57.4],["Claude Fable 5.1",55.8],["Claude Opus 5",52.3],["Claude Fable 5",42.0],["GPT-5.6 Sol",37.3],["DeepSeek V4.1 Flash",27],["Grok 4.7",26]]},
  "OSWorld 2.0":{k:"M",s:"Vendor-reported, different variants",d:"Operate real desktop applications to finish multi-step office tasks.",n:"Not apples to apples: Anthropic reports partial credit (Fable 5.1 scores 41.7% strict) and OpenAI a max-effort run. On the separate OSWorld-Verified board, Qwen3.8 Max leads at 86.1%.",r:[["Claude Fable 5.1 (partial)",77.9],["Claude Opus 5 (partial)",75.4],["GPT-6 Astra",73.5],["GPT-6.1 Sol",71.4],["GPT-6 Sol",64.4],["Muse Spark 1.3 (xhigh)",57.2]]},
- "AutomationBench":{k:"M",s:"Vendor + Vellum table",d:"Business workflow automation across email, spreadsheets and internal tools.",n:"Opus 5.5 appears at 34.2%, 40% and 42.5% depending on source and effort. The 42.5 is from a Sonnet 5.5 write-up. Astra's 41.4 is OpenAI's number.",r:[["Claude Sonnet 5.5",44.7],["Claude Opus 5.5",42.5],["GPT-6 Astra",41.4],["GPT-6.1 Sol",36.1],["Claude Fable 5.1",31.4],["Claude Opus 5",26.9],["GPT-6 Sol",18.1]]},
+ "AutomationBench":{k:"M",s:"Vendor + Vellum table",d:"Business workflow automation across email, spreadsheets and internal tools.",n:"Opus 5.5 appears at 34.2%, 40% and 42.5% depending on source and effort. The 42.5 is from a Sonnet 5.5 write-up. Astra's 41.4 is OpenAI's number. Argon's 51.3 is Google's own run and is not independently verified.",r:[["Gemini 4 Argon",51.3],["Claude Sonnet 5.5",44.7],["Claude Opus 5.5",42.5],["GPT-6 Astra",41.4],["GPT-6.1 Sol",36.1],["Claude Fable 5.1",31.4],["Claude Opus 5",26.9],["GPT-6 Sol",18.1]]},
  "BrowseComp":{k:"M",s:"Vendor + Vellum",d:"Find hard-to-locate facts by browsing the live web.",n:"Everything near the top is within two points, and the list mixes OpenAI's numbers with a tracker's.",r:[["GPT-5.6 Sol",92.2],["GPT-6 Astra",91.5],["Kimi K3",91.2],["GPT-5.6 Sol (OpenAI run)",90.4]]},
  "GDPval-AA v2":{k:"V",s:"Elo · Anthropic + Meta reported",d:"Economically valuable knowledge-work tasks, graded head to head as Elo.",n:"Elo scale, not percent: bars start at 1600. Meta's number is for its shipping xhigh tier; Max reaches 1754 but is not broadly available.",min:1600,max:1900,f:v=>v.toFixed(0),r:[["Claude Fable 5.1",1853],["Claude Opus 5",1824],["Muse Spark 1.3 (Max)",1754],["Claude Fable 5",1723],["GPT-5.6 Sol",1711],["Muse Spark 1.3 (xhigh)",1709]]},
+ "FrontierSWE v2":{k:"V",s:"Google + Anthropic reported",d:"Shorter-horizon software engineering tasks, a useful counterweight to DeepSWE's long-horizon set.",n:"Gemini 4 Argon loses here: Google's own table has it behind Astra, Opus 5.5 and Fable 5.1. Sonnet 5.5's 61.9 comes from Anthropic's launch write-ups.",r:[["GPT-6 Astra",65.5],["Claude Opus 5.5",62.3],["Claude Sonnet 5.5",61.9],["Claude Fable 5.1",56.3],["Gemini 4 Argon",55.0]]},
+ "Vals Index":{k:"V",s:"Google-reported · launch table",d:"A composite of knowledge-work tasks across finance, coding, legal and tax.",n:"Gemini 4 Argon leads in Google's own table. No independent run was found, so treat the two-point lead over Opus 5.5 as a claim to verify.",r:[["Gemini 4 Argon",68.9],["Claude Opus 5.5",67.0],["Claude Fable 5.1",65.8],["GPT-6 Astra",63.1]]},
+ "GraphWalks 256K–1M":{k:"V",s:"Google-reported · launch table",d:"Reasoning over graphs that fill a very long context. This is the 256K to 1M-token band; up to 128K, Argon scores 99.7%, Astra 98.7%, Fable 5.1 91.4% and Opus 5.5 90.6%.",n:"The widest gap in Google's table: 84.2% for Gemini 4 Argon against 71.8% for Astra. Vendor-reported and gated, so it cannot yet be reproduced by outsiders.",r:[["Gemini 4 Argon",84.2],["GPT-6 Astra",71.8],["Claude Opus 5.5",66.8],["Claude Fable 5.1",65.0]]},
  "GPQA Diamond":{k:"I",s:"llm-stats + vendor",d:"Graduate-level, multiple-choice science questions written to be Google-proof.",n:"The top nine are within 3.5 points, so GPQA no longer separates frontier models well. Kimi K3 is the best open model.",r:[["GPT-6 Astra",96.0],["Gemini 3.8 Flash",95.3],["Grok 4.6",94.9],["Claude Mythos Preview",94.6],["GPT-5.6 Sol",94.6],["Gemini 3.1 Pro",94.3],["Claude Opus 4.7",94.2],["Kimi K3",93.5],["Qwen3.8 Max",92.6]]},
  "Humanity's Last Exam":{k:"M",s:"Anthropic + Vellum · with tools",d:"Thousands of expert-written questions across disciplines, built to stay hard after MMLU saturated.",n:"Scores use tools. Without tools, Anthropic reports Fable 5.1 at 60.9%, Fable 5 at 57.8% and Opus 5 at 56.6%. Opus 5.5's 67.7% is from Vellum, not Anthropic's launch table.",r:[["Claude Opus 5.5",67.7],["Claude Fable 5.1",65.0],["Claude Mythos 5.1",65.0],["Claude Opus 5",63.6],["GLM-5.3",62.5],["Muse Spark 1.1",62.1],["DeepSeek V4 Pro",60.0],["GPT-6 Astra",57.2],["Gemini 3.8 Flash (HLE-Verified)",54.9]]},
  "FrontierMath Tier 4":{k:"V",s:"OpenAI-reported",d:"Research-level mathematics problems designed to resist AI.",n:"OpenAI's own figures. A 97.6% score is unprecedented, so treat it as a headline to verify. Fable 5.1 scores 87.8% in the same comparison.",r:[["GPT-6 Astra",97.6],["Claude Fable 5.1",87.8],["Claude Opus 5",73.2]]},
@@ -797,17 +803,18 @@ const AR={
  "Swfte snapshot":{k:"I",s:"Swfte leaderboard · Sep 2026",d:"A second tracker's text-arena ranking, on a different scale and model set.",n:"Different tracker, different Elo scale: here Claude Mythos 5 leads at 1531, and OpenAI's GPT-5.6 Sol reaches fourth. Neither snapshot yet includes the September launches.",min:1450,max:1540,f:v=>v.toFixed(0),r:[["Claude Mythos 5",1531],["Claude Fable 5",1525],["Claude Opus 5",1522],["GPT-5.6 Sol",1514],["GPT-5.5 Pro",1510],["GPT-5.5",1506],["Claude Opus 4.7",1505],["Gemini 3.1 Pro",1505],["Kimi K3",1500],["Grok 4.5",1499]]}
 };
 
-const DL={tb:"Terminal-Bench 4.0",swep:"SWE-bench Pro",dswe:"DeepSWE v1.1",os:"OSWorld 2.0",auto:"AutomationBench",bc:"BrowseComp",gdp:"GDPval-AA v2 (Elo)",gpqa:"GPQA Diamond",hle:"HLE (tools)",fm:"FrontierMath T4",arc:"ARC-AGI-3",aa:"AA Intelligence Index"};
-const DC={tb:"Coding",swep:"Coding",dswe:"Coding",os:"Agents",auto:"Agents",bc:"Agents",gdp:"Agents",gpqa:"Reasoning",hle:"Reasoning",fm:"Reasoning",arc:"Reasoning",aa:"Overall"};
-const DK={tb:"M",swep:"V",dswe:"M",os:"M",auto:"M",bc:"M",gdp:"V",gpqa:"I",hle:"M",fm:"V",arc:"I",aa:"I"};
+const DL={tb:"Terminal-Bench 4.0",swep:"SWE-bench Pro",dswe:"DeepSWE v1.1",os:"OSWorld 2.0",auto:"AutomationBench",bc:"BrowseComp",gdp:"GDPval-AA v2 (Elo)",gpqa:"GPQA Diamond",hle:"HLE (tools)",fm:"FrontierMath T4",arc:"ARC-AGI-3",aa:"AA Intelligence Index",vals:"Vals Index",fswe:"FrontierSWE v2",gw:"GraphWalks 256K–1M"};
+const DC={tb:"Coding",swep:"Coding",dswe:"Coding",os:"Agents",auto:"Agents",bc:"Agents",gdp:"Agents",gpqa:"Reasoning",hle:"Reasoning",fm:"Reasoning",arc:"Reasoning",aa:"Overall",vals:"Agents",fswe:"Coding",gw:"Reasoning"};
+const DK={tb:"M",swep:"V",dswe:"M",os:"M",auto:"M",bc:"M",gdp:"V",gpqa:"I",hle:"M",fm:"V",arc:"I",aa:"I",vals:"V",fswe:"V",gw:"V"};
 const DDOM={gdp:[1600,1900],aa:[0,65]},DTIE={gdp:15,aa:1};
 const D={
- "GPT-6 Astra":{tb:57.7,dswe:74.1,os:72.6,auto:41.4,bc:91.5,gpqa:96.0,hle:57.2,fm:97.6,arc:62.7,aa:53},
+ "Gemini 4 Argon":{tb:57.4,dswe:77.9,os:69.2,auto:51.3,vals:68.9,fswe:55.0,gw:84.2},
+ "GPT-6 Astra":{tb:57.7,dswe:74.1,os:72.6,auto:41.4,bc:91.5,gpqa:96.0,hle:57.2,fm:97.6,arc:62.7,aa:53,vals:63.1,fswe:65.5,gw:71.8},
  "GPT-6.1 Sol":{dswe:75.2,os:71.4,auto:36.1,aa:52},
  "GPT-6 Sol":{dswe:68.8,os:64.4},
- "Claude Fable 5.1":{tb:55.8,dswe:67.4,os:77.9,auto:31.4,gdp:1853,hle:65.0,fm:87.8,aa:53},
- "Claude Opus 5.5":{tb:66.4,swep:89.9,auto:42.5,hle:67.7,aa:58},
- "Claude Sonnet 5.5":{tb:70.6,swep:81.3,dswe:71.0,auto:44.7,aa:56},
+ "Claude Fable 5.1":{tb:55.8,dswe:67.4,os:77.9,auto:31.4,gdp:1853,hle:65.0,fm:87.8,aa:53,vals:65.8,fswe:56.3,gw:65.0},
+ "Claude Opus 5.5":{tb:66.4,swep:89.9,dswe:74.2,auto:42.5,hle:67.7,aa:58,vals:67.0,fswe:62.3,gw:66.8},
+ "Claude Sonnet 5.5":{tb:70.6,swep:81.3,dswe:71.0,auto:44.7,aa:56,fswe:61.9},
  "Claude Opus 5":{tb:52.3,dswe:74.0,os:75.4,auto:26.9,gdp:1824,hle:63.6,fm:73.2,arc:30.2},
  "Claude Mythos 5.1":{tb:60.9,hle:65.0},
  "Gemini 3.8 Flash":{dswe:71.0,gpqa:95.3,hle:54.9,arc:10.4},
@@ -822,23 +829,23 @@ const D={
 const SC=[["Opus 5.5 max",58,5.98,"Anthropic"],["Opus 5.5 xhigh",56,3.46,"Anthropic"],["Opus 5.5 high",54,1.82,"Anthropic"],["Opus 5.5 medium",51,1.34,"Anthropic",-12,4,"end"],["Sonnet 5.5 max",56,7.60,"Anthropic"],["Sonnet 5.5 xhigh",52,2.74,"Anthropic",12,-10],["Fable 5.1 max",53,7.63,"Anthropic"],["Fable 5.1 high",51,3.91,"Anthropic"],["Astra max",53,3.26,"OpenAI"],["Astra xhigh",52,2.31,"OpenAI",-12,4,"end"],["Astra high",51,1.73,"OpenAI",0,22,"middle"],["6.1 Sol max",52,.72,"OpenAI"],["6.1 Sol xhigh",51,.39,"OpenAI"],["6.1 Sol high",50,.32,"OpenAI"]];
 
 const PK=[
- ["Coding agents","Claude Sonnet 5.5","Leads Terminal-Bench 4.0 (70.6%, Anthropic-run) and scores 81.3% on SWE-bench Pro, at $2 / $10.","<b>Opus 5.5</b> for the top SWE-bench Pro score (89.9%). <b>GPT-6.1 Sol</b> for near-Astra DeepSWE (75.2%) at the same price."],
+ ["Coding agents","Claude Sonnet 5.5","Leads Terminal-Bench 4.0 (70.6%, Anthropic-run) and scores 81.3% on SWE-bench Pro, at $2 / $10.","<b>Opus 5.5</b> for the top SWE-bench Pro score (89.9%). <b>GPT-6.1 Sol</b> for near-Astra DeepSWE (75.2%) at the same price. <b>Gemini 4 Argon</b> reports a higher DeepSWE (77.9%) but is not available yet."],
  ["Hard reasoning & maths","GPT-6 Astra","96.0% GPQA, 97.6% FrontierMath Tier 4 (OpenAI-reported) and the only large ARC-AGI-3 score (62.7%).","<b>Opus 5.5</b> leads HLE with tools (67.7%) at $4 / $20, less than half Astra's price."],
  ["Research & knowledge work","Claude Fable 5.1","Top GDPval-AA v2 Elo (1853) and 65.0% on HLE with tools.","<b>Opus 5.5</b>: higher HLE (67.7%, Vellum) at under half the price."],
  ["Computer use","Claude Fable 5.1","77.9% on OSWorld 2.0 with partial credit; 41.7% on the strict variant.","<b>GPT-6 Astra</b>: 72.6–73.5% on max-effort runs and 92.7% on ScreenSpot-Pro."],
  ["Cheapest good agent","GPT-6.1 Sol","$2 / $10 with $0.10 cache reads. DeepSWE 75.2%, and AA index 52 at about $0.72.","<b>Gemini 3.8 Flash</b> at $0.75 / $3.75 until Dec 31 (71.0% DeepSWE)."],
  ["Bulk & high volume","DeepSeek V4.1 Flash","$0.30 / $1.20, half that off-peak, with a 1M context window.","<b>GPT-6 Luna</b> at $0.10 / $0.50 for simple tasks. <b>MiMo-V2.6 Flash</b> at $0.14 / $0.28."],
- ["Very long context","GPT-6 Astra","OpenAI reports 100% on MRCR v2 (8 needles) to 512K tokens and 96.3% between 512K and 1M, against 73.8% for GPT-6 Sol.","Most flagships offer about 1M. Grok 4 Fast Reasoning reaches 2M."],
+ ["Very long context","GPT-6 Astra","OpenAI reports 100% on MRCR v2 (8 needles) to 512K tokens and 96.3% between 512K and 1M, against 73.8% for GPT-6 Sol.","<b>Gemini 4 Argon</b> reports 84.2% on GraphWalks (256K–1M tokens) against Astra's 71.8%, plus a 1M-token output limit, but it is gated for now. Grok 4 Fast Reasoning reaches 2M."],
  ["Open weights","MiMo-V2.6-Pro","Tops BenchLM's open-weight table at 74.2 overall, at $0.435 / $0.87.","<b>Qwen3.8 Max</b> (86.1% OSWorld-Verified, cloud-scale 2.4T) or <b>Kimi K3</b> (93.5% GPQA)."],
- ["Cyber defence","GPT-6 Astra","100% on ExploitBench and 88% on SRE-Bench, all OpenAI-reported. Access is gated through Daybreak.","<b>Claude Mythos 5.1</b> (US organisations, verification programme) or <b>Gemini 3.8 Flash Cyber</b>."],
+ ["Cyber defence","GPT-6 Astra","100% on ExploitBench and 88% on SRE-Bench, all OpenAI-reported. Access is gated through Daybreak.","<b>Gemini 4 Argon</b> (Fairwind programme, ties Astra at 68% on CWE-bench), <b>Claude Mythos 5.1</b> or <b>Gemini 3.8 Flash Cyber</b>, all gated."],
  ["Chat quality","Claude Opus 5","Number one on BenchLM's Arena snapshot at 1505 Elo.","Another tracker puts <b>Mythos 5</b> first at 1531. Snapshots differ."]
 ];
 
-const CM=[["GPT-6 Astra",10,50,1],["Claude Fable 5.1",10,50,.25],["Claude Opus 5.5",4,20,.2],["Claude Sonnet 5.5",2,10,.2],["GPT-6.1 Sol",2,10,.1],["GPT-6 Sol",2,10,.2],["Grok 4.7",2,6,null],["Muse Spark 1.3",1.25,4.25,.15],["Gemini 3.8 Flash",.75,3.75,null],["DeepSeek V4.1 Flash",.3,1.2,null],["MiMo-V2.6-Pro",.435,.87,null],["GPT-6 Luna",.1,.5,null]];
+const CM=[["GPT-6 Astra",10,50,1],["Claude Fable 5.1",10,50,.25],["Claude Opus 5.5",4,20,.2],["Claude Sonnet 5.5",2,10,.2],["GPT-6.1 Sol",2,10,.1],["GPT-6 Sol",2,10,.2],["Grok 4.7",2,6,null],["Muse Spark 1.3",1.25,4.25,.15],["Gemini 3.8 Flash",.75,3.75,null],["Gemini 4 Argon (list)",4,20,.2],["DeepSeek V4.1 Flash",.3,1.2,null],["MiMo-V2.6-Pro",.435,.87,null],["GPT-6 Luna",.1,.5,null]];
 // [label, input K tokens, output K tokens, requests/day, cache %]
 const PRE=[["Chat app",2,.8,300,20],["Coding agent",60,4,400,60],["Doc summariser",30,1,500,0],["Bulk classifier",1,.1,20000,0]];
 
-const CY=[["ExploitBench · Astra",100],["ExploitBench · GPT-5.6 Sol",78.5],["ExploitBench · Fable 5.1",70.0],["SRE-Bench · Astra",88.0],["SRE-Bench · Sol",55.9],["SRE-Bench · Fable 5.1",12.5],["ExploitGym · Astra",42.4],["ExploitGym · Sol",30.3]];
+const CY=[["ExploitBench · Astra",100],["ExploitBench · GPT-5.6 Sol",78.5],["ExploitBench · Fable 5.1",70.0],["SRE-Bench · Astra",88.0],["SRE-Bench · Sol",55.9],["SRE-Bench · Fable 5.1",12.5],["ExploitGym · Astra",42.4],["ExploitGym · Sol",30.3],["CWE-bench · Argon (Google)",68.0],["CWE-bench · Astra (Google)",68.0],["CWE-bench · Opus 5.5 (Google)",67.0],["CWE-bench · Fable 5.1 (Google)",58.0]];
 const AL=[["Honeypot cheating · Astra",0.0],["Honeypot cheating · Sol",48.2],["Safety fails · Astra",2.4],["Safety fails · Sol",22.0],["Cyber refusal · Astra",91.5],["Cyber refusal · Sol",59.0]];
 
 const OW=[
@@ -855,6 +862,7 @@ const OW=[
 ];
 
 const WA=[
+ ["Now","Gemini 4 Argon is not publicly available","No API or model ID yet, only Fairwind defenders. Launch pricing is $2 / $10 and list is $4 / $20 with no stated end date for the intro rate, so budget on list. Build production on a model you can name on an invoice."],
  ["Now","Breaking API changes on Fable 5.1","Anthropic lists three, including removal of forced tool choice. Test before switching models."],
  ["Now","GPT-6.x needs the Responses API for tools","Chat Completions still works but without tool calling. Above 272K input tokens, requests cost 2x on input and 1.5x on output for the whole request."],
  ["Sep 24 · passed","Sora API sunset","OpenAI's video API closed on September 24. The Sora app closed on April 26."],
@@ -869,7 +877,8 @@ const TL=[
  ["Sep 10–11","China's open-weight wave","DeepSeek V4.1 Flash ships at $0.30 / $1.20 with 1M context. Kimi K2.8 and Atria Dawn previews arrive the next day."],
  ["Sep 21","Grok 4.7 arrives late and cheap","A 2.1T-parameter base model at $2 / $6. Independent tests place it at 46 on the AA index, behind the 53–58 cluster."],
  ["Sep 22","The mid-tier day","Opus 5.5, GPT-6 Sol, GPT-6 Luna and MiMo-V2.6 land together. Opus 5.5 immediately claims the top AA score at 58."],
- ["Sep 28–29","Sonnet 5.5, then GPT-6.1 Sol","Sonnet 5.5 beats Opus 5.5 on Terminal-Bench. A day later OpenAI answers at DevDay with $2 / $10 and near-Astra coding."]
+ ["Sep 28–29","Sonnet 5.5, then GPT-6.1 Sol","Sonnet 5.5 beats Opus 5.5 on Terminal-Bench. A day later OpenAI answers at DevDay with $2 / $10 and near-Astra coding."],
+ ["Sep 30","Google answers, behind a gate","Gemini 4 Argon is announced on the last day of the month. In Google's own tables it leads on DeepSWE, AutomationBench and the Vals Index, and trails Astra and Opus 5.5 on Terminal-Bench and FrontierSWE. Access is limited to vetted cyber defenders and there is no public API yet."]
 ];
 const DIS=[
  ["Fable 5.1 on HLE","Reported as <b>59.1%</b> (one tracker), <b>60.9%</b> without tools and <b>65.0%</b> with tools (Anthropic). Charted with tools and labelled as such."],
@@ -879,7 +888,9 @@ const DIS=[
  ["OSWorld naming","OSWorld 2.0 (partial and strict), V2-Offline and OSWorld-Verified are different variants. Charts name the variant where known."],
  ["Arena Elo","<b>1505</b> for Opus 5 on one tracker; <b>1522</b> for the same model on another, where Mythos 5 leads at 1531. Both are shown separately."],
  ["GPT-6 Sol pricing","<b>$2 / $10</b> in the September ledger; one Astra comparison lists a promotional <b>$4 / $20</b>. The ledger price is used."],
- ["Muse Spark 1.3 tiers","Meta's headline scores come from a <b>Max</b> configuration in partner preview, not the <b>xhigh</b> tier you can call. Cards show xhigh."]
+ ["Muse Spark 1.3 tiers","Meta's headline scores come from a <b>Max</b> configuration in partner preview, not the <b>xhigh</b> tier you can call. Cards show xhigh."],
+ ["Gemini 4 Argon figures","Every Argon score comes from <b>Google\'s own launch table</b>, with no independent run found. Context window is undisclosed. Pricing is <b>$2 / $10</b> at launch and <b>$4 / $20</b> at list; the page uses list."],
+ ["Rivals in Google\'s table","Google lists Astra at <b>58.2%</b> and Fable 5.1 at <b>57.9%</b> on Terminal-Bench 4.0, while OpenAI and Anthropic report <b>57.7%</b> and <b>55.8%</b>. Each vendor\'s own number is used for its models; only Argon\'s comes from Google."]
 ];
 const G=[["SWE-bench Verified / Pro","Can the model fix real software bugs? Pro is longer and harder; Verified is nearly saturated."],["DeepSWE","113 long-horizon agentic coding tasks. A good measure of sustained autonomy."],["Terminal-Bench","Command-line agent work: set up environments, run tests, recover from errors."],["OSWorld","Operating real desktop applications. Variants differ in partial-credit rules."],["AutomationBench","Business workflows across email, sheets and tools. Cost per task matters as much as score."],["GPQA Diamond","PhD-level science multiple choice. Above 95%, so it separates models poorly now."],["Humanity's Last Exam","Expert-written frontier questions. Tools on or off changes results by about 4 points."],["FrontierMath Tier 4","Research-grade math. Scores this high are exceptional and deserve independent checks."],["ARC-AGI-3","Interactive puzzles testing how fast a model learns a new task. The widest spread of any benchmark today."],["GDPval","Knowledge-work tasks graded head to head, reported as Elo."],["Arena Elo","Human preference votes in blind chats. Measures taste and helpfulness, not correctness."],["Effort levels","Low, medium, high, xhigh and max change score and cost sharply on the same model. Always compare at equal effort."]];
 
@@ -921,7 +932,7 @@ function swapText(ids,fn){
 const money=v=>v==null?"—":"$"+v;
 
 /* ================= RENDER ================= */
-const items=[["SWE-bench Pro","Opus 5.5","89.9%"],["GPQA","GPT-6 Astra","96.0%"],["HLE (tools)","Opus 5.5","67.7%"],["ARC-AGI-3","Astra","62.7%"],["AA Index","Opus 5.5","58"],["Terminal-Bench 4.0","Sonnet 5.5","70.6%"],["FrontierMath T4","Astra","97.6%"],["Cheapest tier","GPT-6 Luna","$0.10 in"],["Newest","GPT-6.1 Sol","Sep 29"],["GDPval Elo","Fable 5.1","1853"],["Arena #1","Opus 5","1505"],["Video arena","Kling v3","1934"],["OSWorld-Verified","Qwen3.8 Max","86.1%"]];
+const items=[["SWE-bench Pro","Opus 5.5","89.9%"],["GPQA","GPT-6 Astra","96.0%"],["HLE (tools)","Opus 5.5","67.7%"],["ARC-AGI-3","Astra","62.7%"],["AA Index","Opus 5.5","58"],["Terminal-Bench 4.0","Sonnet 5.5","70.6%"],["FrontierMath T4","Astra","97.6%"],["Cheapest tier","GPT-6 Luna","$0.10 in"],["Newest","Gemini 4 Argon","Sep 30"],["DeepSWE v1.1","Gemini 4 Argon","77.9%"],["Vals Index","Gemini 4 Argon","68.9%"],["GDPval Elo","Fable 5.1","1853"],["Arena #1","Opus 5","1505"],["Video arena","Kling v3","1934"],["OSWorld-Verified","Qwen3.8 Max","86.1%"]];
 const mk=a=>{const h=a.map(i=>`<span>${i[0]} <b>${i[1]}</b> <i>${i[2]}</i></span>`).join("");return h+h};
 $("#t1").innerHTML=mk(items);
 
@@ -974,7 +985,7 @@ const names=Object.keys(D),MB=Object.fromEntries(M.map(m=>[m.n,m]));
 const sn=n=>n.replace("Claude ","");
 const shared=(a,b)=>Object.keys(DL).filter(k=>D[a][k]!=null&&D[b][k]!=null);
 const opt=n=>names.map(x=>`<option${x==n?" selected":""}>${x}</option>`).join("");
-const DPRE=[["Flagship showdown","GPT-6 Astra","Claude Fable 5.1"],["Budget battle","GPT-6.1 Sol","Claude Sonnet 5.5"],["Old vs new","Claude Opus 5","Claude Opus 5.5"],["Flash vs flagship","Gemini 3.8 Flash","GPT-6 Astra"],["Open vs closed","Qwen3.8 Max","GPT-6.1 Sol"]];
+const DPRE=[["Flagship showdown","GPT-6 Astra","Claude Fable 5.1"],["Budget battle","GPT-6.1 Sol","Claude Sonnet 5.5"],["Old vs new","Claude Opus 5","Claude Opus 5.5"],["Flash vs flagship","Gemini 3.8 Flash","GPT-6 Astra"],["Open vs closed","Qwen3.8 Max","GPT-6.1 Sol"],["Argon vs Astra","Gemini 4 Argon","GPT-6 Astra"]];
 let dcat="All",lastPair="";
 const qs=new URLSearchParams(location.search),qa=qs.get("a"),qb=qs.get("b");
 $("#da").innerHTML=opt(D[qa]?qa:"GPT-6 Astra");$("#db").innerHTML=opt(D[qb]?qb:"Claude Fable 5.1");
@@ -982,7 +993,7 @@ $("#dpre").innerHTML=DPRE.map((p,i)=>`<button data-i="${i}" aria-pressed="false"
 const fv=(k,v)=>k=="gdp"||k=="aa"?v.toFixed(0):v.toFixed(1);
 function profile(id,name){
   const el=$(id),m=MB[name],n=Object.keys(D[name]).length;
-  el.innerHTML=`<div class="pt"><i style="background:${LABC[m.co]||"var(--a)"}"></i>${m.co} · ${dlabel(m.d)}${m.lab=="Open weights"?" · open weights":""}</div><span class="tg">${m.tag}</span><div class="st"><div><small>Context</small><b>${m.ctx}</b></div><div><small>In / out $</small><b>${money(m.pin)} / ${money(m.pout)}</b></div><div><small>Scores</small><b>${n} of 12</b></div></div>`;
+  el.innerHTML=`<div class="pt"><i style="background:${LABC[m.co]||"var(--a)"}"></i>${m.co} · ${dlabel(m.d)}${m.lab=="Open weights"?" · open weights":""}</div><span class="tg">${m.tag}</span><div class="st"><div><small>Context</small><b>${m.ctx}</b></div><div><small>In / out $</small><b>${money(m.pin)} / ${money(m.pout)}</b></div><div><small>Scores</small><b>${n} of ${Object.keys(DL).length}</b></div></div>`;
 }
 function duel(force){
   const a=$("#da").value,b=$("#db").value,pair=a+"|"+b,A=D[a],Bk=D[b];
@@ -1104,7 +1115,7 @@ calc();
 [["#cy",CY],["#al",AL]].forEach(([id,data])=>{const r=new Rows($(id));$(id).classList.add("rows");onView($(id),()=>r.set(data,{}),.2)});
 
 $("#ow").innerHTML=OW.map(o=>`<div class="r"><h3>${o[0]}</h3><span class="sz">${o[1]}</span><p>${o[2]}</p></div>`).join("");
-$("#wa").innerHTML=WA.map((w,i)=>`<div class="r"><div class="d ${i<2?"now":""}">${w[0]}</div><div><b>${w[1]}</b><p>${w[2]}</p></div></div>`).join("");
+$("#wa").innerHTML=WA.map((w,i)=>`<div class="r"><div class="d ${i<3?"now":""}">${w[0]}</div><div><b>${w[1]}</b><p>${w[2]}</p></div></div>`).join("");
 
 const cols=[["Model","n"],["Lab","co"],["Released","d"],["Context","ctx"],["In $/M","pin"],["Out $/M","pout"],["Cache read","cache"]];
 let sk="d",asc=false;
@@ -1149,7 +1160,7 @@ function modelHTML(name){
   <span class="tg2 mpi" style="--i:2">${m.tag}</span>
   <p class="desc2 mpi" style="--i:3">${m.t}</p>
   <div class="msp mpi" style="--i:4">${spec("Context",m.ctx)}${spec("Input $/M",money(m.pin))}${spec("Output $/M",money(m.pout))}${spec("Cache read",money(m.cache))}</div>
-  <h4 class="mpi" style="--i:5">Benchmark scores${ks.length?` · ${ks.length} of 12`:""}</h4>
+  <h4 class="mpi" style="--i:5">Benchmark scores${ks.length?` · ${ks.length} of ${Object.keys(DL).length}`:""}</h4>
   ${rows||`<p class="mtxt mpi" style="--i:6">No comparable benchmark scores found for this model. Headline figures reported elsewhere: ${m.bm.map(b=>`${b[0]} <b>${b[1]}</b>`).join(", ")}.</p>`}
   <p class="mtxt mpi" style="--i:${i+6}">${st}</p>
   <div class="dact mpi" style="--i:${i+7}">${D[name]?`<button id="mpcmp">Compare with another model</button>`:""}<button id="mpcopy">Copy link to this page</button></div>
@@ -1252,6 +1263,7 @@ rank();
 
 /* ---------- changelog ---------- */
 const CL=[
+ ["Oct 1","Data","Gemini 4 Argon added everywhere","Announced Sep 30 and gated to vetted cyber defenders. Added to the ledger, cards, model page, head-to-head, ranker, cost calculator, access and watch-outs sections, with Google's own benchmark table. New benchmarks: FrontierSWE v2, Vals Index and GraphWalks."],
  ["Sep 30","New","Model pages, custom ranker and this changelog","Every model has its own shareable page (link ends in #model=…). The ranker scores models on the priorities you weight. This log records every change."],
  ["Sep 30","Improved","Head-to-head rebuilt","Ties inside measurement noise, category filter, model profiles, shareable matchup links and 15 selectable models."],
  ["Sep 30","Data","GPT-6.1 Sol and Claude Sonnet 5.5 added","Released Sep 29 and Sep 28. Prices, effort levels and benchmarks from Vellum, DataCamp and vendor write-ups."],

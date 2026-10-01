@@ -30,4 +30,4 @@ When you change anything, add an entry to the `CL` array (the changelog), update
 
 Model pages open from `#model=<slug>` links, for example `#model=gpt-6-astra`. The slug is the model name in lower case with punctuation replaced by hyphens. Adding a model to `M` (and, if it has benchmark scores, to `D`) creates its page automatically.
 
-Figures were compiled on 30 September 2026 from vendor announcements and third-party trackers, and they disagree in places. The page lists the conflicts in its "Where sources disagree" section. Check primary sources before relying on any number.
+Figures were compiled on 30 September and 1 October 2026 from vendor announcements and third-party trackers, and they disagree in places. The page lists the conflicts in its "Where sources disagree" section. Check primary sources before relying on any number.
